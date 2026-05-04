@@ -2,6 +2,9 @@ name: Status Events CI
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: [Setup CI]
+    types: [completed]
   issues:
     types: [opened, edited, labeled, unlabeled, closed, reopened]
   issue_comment:
@@ -17,13 +20,19 @@ permissions:
   contents: write
   issues: read
 
+concurrency:
+  group: status-events-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   generate-status-events:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
         uses: actions/checkout@v4
         with:
+          ref: master
           fetch-depth: 0
 
       - name: Generate status events JSON
@@ -32,6 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit status events JSON to master
+        if: github.event_name != 'workflow_run'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -40,26 +50,17 @@ jobs:
             echo "status_events_master_changed=false"
           else
             git commit -m ":card_file_box: Update status events [skip ci]"
+            git pull --rebase origin master
             git push origin HEAD:master
             echo "status_events_master_changed=true"
           fi
 
       - name: Publish status events JSON to gh-pages
-        run: |
-          git fetch origin gh-pages
-          worktree="$(mktemp -d)"
-          rm -rf "$worktree"
-          git worktree add "$worktree" origin/gh-pages
-          mkdir -p "$worktree/api"
-          cp api/status-events.json "$worktree/api/status-events.json"
-          cd "$worktree"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add api/status-events.json
-          if git diff --cached --quiet; then
-            echo "status_events_pages_changed=false"
-          else
-            git commit -m ":card_file_box: Publish status events [skip ci]"
-            git push origin HEAD:gh-pages
-            echo "status_events_pages_changed=true"
-          fi
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: api
+          destination_dir: api
+          keep_files: true
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
