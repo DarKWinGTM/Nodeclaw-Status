@@ -1,80 +1,40 @@
 [
   {
-    "name": "NodeClaw App",
-    "url": "https://app.nodenetwork.ovh",
-    "icon": "https://icons.duckduckgo.com/ip3/app.nodenetwork.ovh.ico",
-    "slug": "node-claw-app",
-    "status": "down",
-    "uptime": "5.57%",
-    "uptimeDay": "5.57%",
-    "uptimeWeek": "5.57%",
-    "uptimeMonth": "5.57%",
-    "uptimeYear": "5.57%",
-    "time": 822,
-    "timeDay": 822,
-    "timeWeek": 822,
-    "timeMonth": 822,
-    "timeYear": 822,
-    "dailyMinutesDown": {
-      "2026-05-04": 0
-    }
-  },
-  {
-    "name": "NodeClaw Public Docs",
-    "url": "https://app.nodenetwork.ovh/docs",
-    "icon": "https://icons.duckduckgo.com/ip3/app.nodenetwork.ovh.ico",
-    "slug": "node-claw-public-docs",
-    "status": "down",
-    "uptime": "2.06%",
-    "uptimeDay": "2.06%",
-    "uptimeWeek": "2.06%",
-    "uptimeMonth": "2.06%",
-    "uptimeYear": "2.06%",
-    "time": 266,
-    "timeDay": 266,
-    "timeWeek": 266,
-    "timeMonth": 266,
-    "timeYear": 266,
-    "dailyMinutesDown": {
-      "2026-05-04": 0
-    }
-  },
-  {
-    "name": "NodeClaw Tools Directory",
-    "url": "https://app.nodenetwork.ovh/docs/tools",
-    "icon": "https://icons.duckduckgo.com/ip3/app.nodenetwork.ovh.ico",
-    "slug": "node-claw-tools-directory",
-    "status": "down",
-    "uptime": "1.79%",
-    "uptimeDay": "1.79%",
-    "uptimeWeek": "1.79%",
-    "uptimeMonth": "1.79%",
-    "uptimeYear": "1.79%",
-    "time": 267,
-    "timeDay": 267,
-    "timeWeek": 267,
-    "timeMonth": 267,
-    "timeYear": 267,
-    "dailyMinutesDown": {
-      "2026-05-04": 0
-    }
-  },
-  {
-    "name": "NodeNetwork Website",
+    "name": "NodeNetwork Website — nodenetwork.ovh",
     "url": "https://nodenetwork.ovh",
     "icon": "https://icons.duckduckgo.com/ip3/nodenetwork.ovh.ico",
-    "slug": "node-network-website",
+    "slug": "node-network-website-nodenetwork-ovh",
     "status": "up",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 1028,
-    "timeDay": 1028,
-    "timeWeek": 1028,
-    "timeMonth": 1028,
-    "timeYear": 1028,
+    "time": 870,
+    "timeDay": 870,
+    "timeWeek": 870,
+    "timeMonth": 870,
+    "timeYear": 870,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "NodeClaw App — app.nodenetwork.ovh",
+    "url": "https://app.nodenetwork.ovh",
+    "icon": "https://icons.duckduckgo.com/ip3/app.nodenetwork.ovh.ico",
+    "slug": "node-claw-app-app-nodenetwork-ovh",
+    "status": "down",
+    "uptime": "33.92%",
+    "uptimeDay": "33.92%",
+    "uptimeWeek": "33.92%",
+    "uptimeMonth": "33.92%",
+    "uptimeYear": "33.92%",
+    "time": 919,
+    "timeDay": 919,
+    "timeWeek": 919,
+    "timeMonth": 919,
+    "timeYear": 919,
+    "dailyMinutesDown": {
+      "2026-05-04": 0
+    }
   }
 ]
