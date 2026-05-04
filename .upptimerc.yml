@@ -151,6 +151,26 @@ status-website:
       article.graph h3 {
         color: var(--nodeclaw-page-text) !important;
       }
+      main.container > div.f.svelte-fqsq6s {
+        align-items: center;
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 0.72rem;
+        justify-content: space-between;
+        margin: 1.15rem 0 0.85rem;
+        padding: 0.72rem 0.84rem 0.72rem 1rem !important;
+      }
+      main.container > div.f.svelte-fqsq6s > h2 {
+        color: var(--nodeclaw-page-text) !important;
+        font-size: 1.08rem;
+        font-weight: 820;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        margin: 0 !important;
+      }
+      section.live-status.svelte-fqsq6s {
+        margin-top: 0 !important;
+      }
       article.link p,
       article.graph p,
       article.link small,
@@ -320,6 +340,14 @@ status-website:
       .nodeclaw-status-events__tab:hover {
         background: rgba(147, 197, 253, 0.10) !important;
         color: #e0f2fe !important;
+      }
+      .nodeclaw-status-events__tab:disabled {
+        color: rgba(148, 163, 184, 0.52) !important;
+        cursor: not-allowed;
+      }
+      .nodeclaw-status-events__tab:disabled:hover {
+        background: transparent !important;
+        color: rgba(148, 163, 184, 0.52) !important;
       }
       .nodeclaw-status-events__tab[aria-pressed='true'] {
         background: linear-gradient(135deg, rgba(59, 130, 246, 0.86), rgba(96, 165, 250, 0.58)) !important;
@@ -570,19 +598,19 @@ status-website:
             accumulator[event.type] = (accumulator[event.type] || 0) + 1;
             return accumulator;
           }, {});
-          var tabConfig = [{ type: 'all', title: 'All' }].concat(sectionConfig.filter(function (section) {
-            return typeCounts[section.type] > 0;
-          }));
+          var tabConfig = [{ type: 'all', title: 'All' }].concat(sectionConfig);
 
           head.appendChild(textNode('h2', 'nodeclaw-status-events__heading', 'Status Updates'));
           head.appendChild(textNode('p', 'nodeclaw-status-events__description', 'Public announcements, notices, maintenance, reports, and manual incident updates.'));
 
           tabConfig.forEach(function (section) {
-            var total = section.type === 'all' ? visibleEvents.length : typeCounts[section.type];
+            var total = section.type === 'all' ? visibleEvents.length : (typeCounts[section.type] || 0);
             var button = textNode('button', 'nodeclaw-status-events__tab', section.title + ' ' + total);
             button.type = 'button';
+            button.disabled = section.type !== 'all' && total === 0;
             button.setAttribute('aria-pressed', section.type === selectedType ? 'true' : 'false');
             button.addEventListener('click', function () {
+              if (button.disabled) return;
               selectedType = section.type;
               currentPage = 1;
               updateBoard();
