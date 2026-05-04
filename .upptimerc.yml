@@ -252,26 +252,27 @@ status-website:
       .nodeclaw-status-events * {
         box-sizing: border-box;
       }
-      .nodeclaw-status-events__grid {
-        display: grid;
-        gap: 1rem;
-      }
-      .nodeclaw-status-events__section {
+      .nodeclaw-status-events__board {
         border: 1px solid var(--nodeclaw-border);
-        border-radius: 20px;
+        border-radius: 22px;
         background:
-          radial-gradient(circle at top left, rgba(96, 165, 250, 0.20), transparent 18rem),
-          radial-gradient(circle at bottom right, rgba(110, 231, 183, 0.10), transparent 16rem),
-          linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.74));
-        box-shadow: 0 22px 58px rgba(2, 6, 23, 0.34);
+          radial-gradient(circle at top left, rgba(96, 165, 250, 0.22), transparent 20rem),
+          radial-gradient(circle at bottom right, rgba(110, 231, 183, 0.10), transparent 18rem),
+          linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(30, 41, 59, 0.76));
+        box-shadow: 0 24px 64px rgba(2, 6, 23, 0.36);
         padding: 1rem;
       }
+      .nodeclaw-status-events__board-head {
+        display: grid;
+        gap: 0.35rem;
+        margin-bottom: 0.9rem;
+      }
       .nodeclaw-status-events__heading {
-        margin: 0 0 0.8rem;
+        margin: 0;
         color: var(--nodeclaw-text);
-        font-size: 1.05rem;
-        font-weight: 750;
-        letter-spacing: -0.01em;
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
       }
       .nodeclaw-status-events__heading::before {
         background: var(--nodeclaw-accent);
@@ -281,6 +282,55 @@ status-website:
         height: 0.72rem;
         margin-right: 0.45rem;
         width: 0.22rem;
+      }
+      .nodeclaw-status-events__description {
+        color: var(--nodeclaw-muted);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .nodeclaw-status-events__toolbar {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        justify-content: space-between;
+        margin-bottom: 0.9rem;
+      }
+      .nodeclaw-status-events__tabs {
+        align-items: center;
+        background: rgba(2, 6, 23, 0.34);
+        border: 1px solid rgba(147, 197, 253, 0.16);
+        border-radius: 999px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.18rem;
+        padding: 0.2rem;
+      }
+      .nodeclaw-status-events__tab {
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 999px;
+        color: var(--nodeclaw-muted) !important;
+        cursor: pointer;
+        font-size: 0.82rem;
+        font-weight: 750;
+        padding: 0.34rem 0.68rem;
+        transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      }
+      .nodeclaw-status-events__tab:hover {
+        background: rgba(147, 197, 253, 0.10) !important;
+        color: #e0f2fe !important;
+      }
+      .nodeclaw-status-events__tab[aria-pressed='true'] {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.86), rgba(96, 165, 250, 0.58)) !important;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+        color: #ffffff !important;
+        transform: translateY(-1px);
+      }
+      .nodeclaw-status-events__count {
+        color: var(--nodeclaw-subtle);
+        font-size: 0.84rem;
+        font-weight: 650;
       }
       .nodeclaw-status-events__list {
         display: grid;
@@ -360,12 +410,43 @@ status-website:
         outline: 3px solid rgba(147, 197, 253, 0.40);
         outline-offset: 3px;
       }
+      .nodeclaw-status-events__pager {
+        align-items: center;
+        color: var(--nodeclaw-subtle);
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.86rem;
+        gap: 0.6rem;
+        justify-content: flex-end;
+        margin-top: 0.9rem;
+      }
+      .nodeclaw-status-events__pager[hidden] {
+        display: none;
+      }
+      .nodeclaw-status-events__pager-button {
+        background: rgba(15, 23, 42, 0.62) !important;
+        border: 1px solid rgba(147, 197, 253, 0.18) !important;
+        border-radius: 999px;
+        color: var(--nodeclaw-accent-strong) !important;
+        cursor: pointer;
+        font-size: 0.84rem;
+        font-weight: 750;
+        padding: 0.34rem 0.72rem;
+      }
+      .nodeclaw-status-events__pager-button:not(:disabled):hover {
+        background: rgba(37, 99, 235, 0.22) !important;
+        border-color: rgba(147, 197, 253, 0.36) !important;
+      }
+      .nodeclaw-status-events__pager-button:disabled {
+        color: rgba(148, 163, 184, 0.48) !important;
+        cursor: not-allowed;
+      }
       @media (min-width: 768px) {
         main.container > header,
         header.svelte-ngkazm {
           padding: 1.75rem !important;
         }
-        .nodeclaw-status-events__section {
+        .nodeclaw-status-events__board {
           padding: 1.15rem 1.25rem;
         }
       }
@@ -374,12 +455,13 @@ status-website:
     <section id="nodeclaw-status-events" class="nodeclaw-status-events" aria-label="NodeClaw status events" hidden></section>
     <script>
       (function () {
+        var PAGE_SIZE = 5;
         var sectionConfig = [
           { type: 'announcement', title: 'Announcements' },
-          { type: 'notice', title: 'Current Notices' },
-          { type: 'maintenance', title: 'Scheduled Maintenance' },
-          { type: 'operational-report', title: 'Operational Reports' },
-          { type: 'incident', title: 'Manual Incident Reports' }
+          { type: 'notice', title: 'Notices' },
+          { type: 'maintenance', title: 'Maintenance' },
+          { type: 'operational-report', title: 'Reports' },
+          { type: 'incident', title: 'Manual Incidents' }
         ];
 
         function onReady(callback) {
@@ -446,27 +528,116 @@ status-website:
           return item;
         }
 
+        function sectionTitle(type) {
+          var match = sectionConfig.find(function (section) { return section.type === type; });
+          return match ? match.title : 'Status Updates';
+        }
+
+        function eventTimestamp(event) {
+          var value = event.startsAt || event.scheduledFor || event.publishedAt || event.updatedAt;
+          var date = value ? new Date(value) : null;
+          return date && !Number.isNaN(date.getTime()) ? date.getTime() : 0;
+        }
+
+        function sortEvents(events) {
+          return events.slice().sort(function (left, right) {
+            if (Boolean(left.pinned) !== Boolean(right.pinned)) return left.pinned ? -1 : 1;
+            return eventTimestamp(right) - eventTimestamp(left);
+          });
+        }
+
         function render(root, data) {
           var events = Array.isArray(data && data.events) ? data.events : [];
-          var visibleEvents = events.filter(function (event) {
+          var visibleEvents = sortEvents(events.filter(function (event) {
             return event && ['scheduled', 'active', 'resolved'].indexOf(event.state) !== -1;
-          });
+          }));
           if (!visibleEvents.length) return;
 
-          var grid = textNode('div', 'nodeclaw-status-events__grid');
-          sectionConfig.forEach(function (section) {
-            var items = visibleEvents.filter(function (event) { return event.type === section.type; });
-            if (!items.length) return;
-            var group = textNode('section', 'nodeclaw-status-events__section');
-            group.appendChild(textNode('h2', 'nodeclaw-status-events__heading', section.title));
-            var list = textNode('div', 'nodeclaw-status-events__list');
-            items.forEach(function (event) { list.appendChild(renderEvent(event)); });
-            group.appendChild(list);
-            grid.appendChild(group);
+          var selectedType = 'all';
+          var currentPage = 1;
+          var board = textNode('section', 'nodeclaw-status-events__board');
+          var head = textNode('div', 'nodeclaw-status-events__board-head');
+          var toolbar = textNode('div', 'nodeclaw-status-events__toolbar');
+          var tabs = textNode('div', 'nodeclaw-status-events__tabs');
+          var count = textNode('div', 'nodeclaw-status-events__count');
+          var list = textNode('div', 'nodeclaw-status-events__list');
+          var pager = textNode('div', 'nodeclaw-status-events__pager');
+          var previous = textNode('button', 'nodeclaw-status-events__pager-button', 'Previous');
+          var pageLabel = textNode('span', 'nodeclaw-status-events__page-label');
+          var next = textNode('button', 'nodeclaw-status-events__pager-button', 'Next');
+          var tabButtons = [];
+          var typeCounts = visibleEvents.reduce(function (accumulator, event) {
+            accumulator[event.type] = (accumulator[event.type] || 0) + 1;
+            return accumulator;
+          }, {});
+          var tabConfig = [{ type: 'all', title: 'All' }].concat(sectionConfig.filter(function (section) {
+            return typeCounts[section.type] > 0;
+          }));
+
+          head.appendChild(textNode('h2', 'nodeclaw-status-events__heading', 'Status Updates'));
+          head.appendChild(textNode('p', 'nodeclaw-status-events__description', 'Public announcements, notices, maintenance, reports, and manual incident updates.'));
+
+          tabConfig.forEach(function (section) {
+            var total = section.type === 'all' ? visibleEvents.length : typeCounts[section.type];
+            var button = textNode('button', 'nodeclaw-status-events__tab', section.title + ' ' + total);
+            button.type = 'button';
+            button.setAttribute('aria-pressed', section.type === selectedType ? 'true' : 'false');
+            button.addEventListener('click', function () {
+              selectedType = section.type;
+              currentPage = 1;
+              updateBoard();
+            });
+            tabs.appendChild(button);
+            tabButtons.push({ type: section.type, button: button });
           });
 
-          if (!grid.children.length) return;
-          root.replaceChildren(grid);
+          previous.type = 'button';
+          next.type = 'button';
+          previous.addEventListener('click', function () {
+            if (currentPage > 1) {
+              currentPage -= 1;
+              updateBoard();
+            }
+          });
+          next.addEventListener('click', function () {
+            currentPage += 1;
+            updateBoard();
+          });
+          pager.appendChild(previous);
+          pager.appendChild(pageLabel);
+          pager.appendChild(next);
+          toolbar.appendChild(tabs);
+          toolbar.appendChild(count);
+          board.appendChild(head);
+          board.appendChild(toolbar);
+          board.appendChild(list);
+          board.appendChild(pager);
+
+          function currentItems() {
+            if (selectedType === 'all') return visibleEvents;
+            return visibleEvents.filter(function (event) { return event.type === selectedType; });
+          }
+
+          function updateBoard() {
+            var items = currentItems();
+            var pageCount = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+            currentPage = Math.min(Math.max(currentPage, 1), pageCount);
+            var start = (currentPage - 1) * PAGE_SIZE;
+            var pageItems = items.slice(start, start + PAGE_SIZE);
+            list.replaceChildren();
+            pageItems.forEach(function (event) { list.appendChild(renderEvent(event)); });
+            tabButtons.forEach(function (entry) {
+              entry.button.setAttribute('aria-pressed', entry.type === selectedType ? 'true' : 'false');
+            });
+            count.textContent = 'Showing ' + (start + 1) + '-' + (start + pageItems.length) + ' of ' + items.length + ' ' + sectionTitle(selectedType).toLowerCase();
+            pageLabel.textContent = 'Page ' + currentPage + ' / ' + pageCount;
+            previous.disabled = currentPage <= 1;
+            next.disabled = currentPage >= pageCount;
+            pager.hidden = pageCount <= 1;
+          }
+
+          updateBoard();
+          root.replaceChildren(board);
           root.hidden = false;
 
           var header = document.querySelector('main > header');
