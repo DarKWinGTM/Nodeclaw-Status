@@ -1,5 +1,5 @@
 # Nodeclaw-Status - TODO
-> **Last Updated:** 2026-05-04
+> **Last Updated:** 2026-05-05
 
 ---
 
@@ -23,6 +23,7 @@
 - Verified headless browser-rendered public DOM shows Issue #6 under `Announcements` and does not show `Active Incidents`.
 - Verified NodeNetwork Website and NodeClaw App Health endpoints return HTTP 200 after release.
 - Expanded the status page theme from the injected status event section to a whole-page NodeNetwork-aligned dark blue/slate visual treatment.
+- Refined the Live Status timeframe selector into a segmented pill control without individual boxed radio label borders.
 
 ---
 
@@ -42,3 +43,4 @@ No pending tasks for the v0.1.0 Status Events release.
 | 2026-05-04 | Implemented local Status Events compiler, renderer, issue template, workflow, and generated event JSON. |
 | 2026-05-04 | Released and verified Issue #6 public announcement rendering outside Upptime `Active Incidents`. |
 | 2026-05-04 | Expanded the Upptime status page theme to match NodeNetwork's dark blue/slate tone across the whole page. |
+| 2026-05-05 | Refined the Live Status timeframe selector into a smoother segmented pill control. |
