@@ -130,8 +130,8 @@ status-website:
       article.link,
       article.graph,
       article.up.link.graph,
-      main.container > .f,
-      .f.svelte-fqsq6s {
+      main.container > div.f,
+      div.f.svelte-fqsq6s {
         background:
           radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 18rem),
           linear-gradient(135deg, rgba(15, 23, 42, 0.90), rgba(30, 41, 59, 0.72)) !important;
@@ -157,16 +157,60 @@ status-website:
       article.graph small {
         color: var(--nodeclaw-page-muted) !important;
       }
-      input[type='radio'] + label,
+      form.f.r.svelte-fqsq6s {
+        align-items: center;
+        background: rgba(2, 6, 23, 0.34) !important;
+        border: 1px solid rgba(147, 197, 253, 0.18) !important;
+        border-radius: 999px !important;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 10px 24px rgba(2, 6, 23, 0.22) !important;
+        display: flex !important;
+        gap: 0.14rem;
+        padding: 0.18rem !important;
+      }
+      form.f.r.svelte-fqsq6s > div {
+        display: flex;
+      }
+      form.f.r.svelte-fqsq6s input[type='radio'] {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+      }
+      form.f.r.svelte-fqsq6s input[type='radio'] + label {
+        align-items: center;
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 999px !important;
+        box-shadow: none !important;
+        color: var(--nodeclaw-page-muted) !important;
+        cursor: pointer;
+        display: inline-flex;
+        font-size: 0.86rem;
+        font-weight: 750;
+        justify-content: center;
+        line-height: 1;
+        min-height: 1.55rem;
+        min-width: 2.05rem;
+        padding: 0.16rem 0.56rem !important;
+        transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      }
+      form.f.r.svelte-fqsq6s input[type='radio'] + label:hover {
+        background: rgba(147, 197, 253, 0.10) !important;
+        color: #e0f2fe !important;
+      }
+      form.f.r.svelte-fqsq6s input[type='radio']:checked + label {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.86), rgba(96, 165, 250, 0.58)) !important;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.18),
+          0 8px 18px rgba(37, 99, 235, 0.30) !important;
+        color: #ffffff !important;
+        transform: translateY(-1px);
+      }
       input[type='checkbox'] + label {
-        background: rgba(15, 23, 42, 0.70) !important;
-        border: 1px solid var(--nodeclaw-page-border) !important;
         color: var(--nodeclaw-page-muted) !important;
       }
-      input[type='radio']:checked + label,
       input[type='checkbox']:checked + label {
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.72), rgba(59, 130, 246, 0.44)) !important;
-        border-color: rgba(147, 197, 253, 0.56) !important;
         color: #ffffff !important;
       }
       button,
