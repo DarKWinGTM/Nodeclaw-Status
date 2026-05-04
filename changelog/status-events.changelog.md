@@ -17,6 +17,10 @@
 - Added the NodeClaw-owned `Status Events CI` workflow for regenerating event data on issue/source changes and publishing the static JSON to `gh-pages` without taking over Upptime's page deploy.
 - Generated the first public status event JSON from GitHub Issue #6.
 
+### Changed
+
+- Refined the status event section visual tone toward the NodeNetwork operational SaaS palette with stronger blue accents, slate/white surfaces, clearer badge roles, and visible link focus styling.
+
 ### Notes
 
 - Upptime remains the online/down monitor and automatic incident engine.
