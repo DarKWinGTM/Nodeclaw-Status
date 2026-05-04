@@ -20,6 +20,7 @@
 ### Changed
 
 - Refined the status event section visual tone toward the NodeNetwork operational SaaS palette with stronger blue accents, slate/white surfaces, clearer badge roles, and visible link focus styling.
+- Expanded the NodeNetwork visual tone from the injected status event section to the whole Upptime status page, including the page background, navigation, header, operational banner, graph cards, form tabs, and dark event surfaces.
 - Removed `.upptimerc.yml` from direct `Status Events CI` push triggers so Upptime config/theme changes publish status events only after successful `Setup CI` completion.
 
 ### Notes

@@ -72,7 +72,7 @@ The preview proved that Upptime `introMessage`, `customHeadHtml`, and `customBod
 - Parsed local and public `api/status-events.json` successfully.
 - Verified `Setup CI`, fixed `Status Events CI`, and verified the fixed run passed.
 - Verified GitHub Pages deployment after publishing `api/status-events.json` to `gh-pages`.
-- Verified public page contains status event renderer markers.
+- Verified public page contains status event renderer and whole-page NodeNetwork theme markers.
 - Verified headless browser-rendered DOM shows Issue #6 under `Announcements` and does not show `Active Incidents`.
 
 ## Rollback Approach

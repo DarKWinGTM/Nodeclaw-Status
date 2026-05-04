@@ -11,7 +11,7 @@ Develop NodeClaw Status from an Upptime-only online/down page into an Issue-driv
 
 ## Current State
 
-The Status Events Layer v0.1.0 is implemented, pushed, and publicly verified. GitHub Issue #6 is served through `api/status-events.json` and rendered under `Announcements` outside Upptime `Active Incidents`.
+The Status Events Layer v0.1.0 is implemented, pushed, and publicly verified. GitHub Issue #6 is served through `api/status-events.json` and rendered under `Announcements` outside Upptime `Active Incidents`; the public Upptime page now uses a whole-page NodeNetwork-aligned dark blue/slate visual treatment.
 
 ## Phase Map
 

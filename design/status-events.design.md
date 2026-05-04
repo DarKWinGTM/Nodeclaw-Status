@@ -183,7 +183,7 @@ The issue title becomes the event title. The first public paragraph after metada
 
 The status page renderer is injected through `.upptimerc.yml`:
 
-- `customHeadHtml` owns CSS for status event sections.
+- `customHeadHtml` owns the NodeNetwork-aligned page theme and status event section CSS.
 - `customBodyHtml` owns the renderer mount and browser-side script.
 - The renderer fetches `/Nodeclaw-Status/api/status-events.json` from the status page base URL.
 - The renderer inserts the event section after the main page header and before Upptime live incident/status sections.
@@ -231,6 +231,6 @@ Required checks:
 - Compiler syntax passes.
 - Compiler generates valid JSON from fixture input.
 - Compiler generates valid JSON from real GitHub issues.
-- Public renderer markers appear on the generated status page.
+- Public renderer and whole-page theme markers appear on the generated status page.
 - Issue-driven announcement does not appear under Upptime `Active Incidents`.
 - `api/status-events.json` contains only public-safe fields.
