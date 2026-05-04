@@ -12,7 +12,7 @@ status-website:
   baseUrl: /Nodeclaw-Status
   name: NodeClaw Status
   introTitle: "NodeClaw System Status"
-  introMessage: Public uptime and incident status for NodeClaw services.
+  introMessage: NodeClaw public status monitoring is active. This page tracks NodeNetwork Website and NodeClaw App Health availability.
   navbar:
     - title: Status
       href: /
