@@ -34,5 +34,23 @@
     "timeMonth": 1152,
     "timeYear": 1152,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "NodeClaw Runtime Health — runtime.nodenetwork.ovh/health",
+    "url": "https://runtime.nodenetwork.ovh/health",
+    "icon": "https://icons.duckduckgo.com/ip3/runtime.nodenetwork.ovh.ico",
+    "slug": "node-claw-runtime-health-runtime-nodenetwork-ovh-health",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 3102,
+    "timeDay": 3102,
+    "timeWeek": 3102,
+    "timeMonth": 3102,
+    "timeYear": 3102,
+    "dailyMinutesDown": {}
   }
 ]
