@@ -21,4 +21,4 @@
 
 - Upptime remains the online/down monitor and automatic incident engine.
 - NodeClaw Status Events owns non-incident public communication and issue-driven reporting.
-- Public release verification remains tracked in Phase 004 until the workflow and GitHub Pages output are checked after push.
+- Public release verification passed: Issue #6 renders as an announcement outside Upptime `Active Incidents`, and the monitored NodeNetwork Website/App Health endpoints returned HTTP 200 after release.

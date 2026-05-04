@@ -1,6 +1,6 @@
 # Nodeclaw-Status Phase Summary
 
-**Status:** Active
+**Status:** Completed
 **Session:** 519ee145-4708-49b8-9b9e-e57227b2ade7
 **Governing Design:** [../design/status-events.design.md](../design/status-events.design.md)
 **Governing Patch:** [../patch/status-events-layer.patch.md](../patch/status-events-layer.patch.md)
@@ -11,7 +11,7 @@ Develop NodeClaw Status from an Upptime-only online/down page into an Issue-driv
 
 ## Current State
 
-Local implementation is complete through the compiler, issue template, renderer, workflow, and generated Issue #6 JSON. Phase 004 remains active for push, workflow verification, GitHub Pages publication, and public-page behavior checks.
+The Status Events Layer v0.1.0 is implemented, pushed, and publicly verified. GitHub Issue #6 is served through `api/status-events.json` and rendered under `Announcements` outside Upptime `Active Incidents`.
 
 ## Phase Map
 
@@ -19,8 +19,8 @@ Local implementation is complete through the compiler, issue template, renderer,
 |---|---|---|---|
 | 001 | Status Events Governance and Baseline | Completed | Establish the clean baseline and governed status-events plan. |
 | 002 | Status Event Compiler and Issue Contract | Completed | Convert GitHub Issues with NodeClaw event labels/metadata into public JSON. |
-| 003 | Status Page Renderer Integration | Completed locally | Render status event sections through Upptime custom HTML without editing generated templates. |
-| 004 | Workflow, Verification, and Release | Active | Regenerate event data on issue changes, verify public page behavior, and prepare release. |
+| 003 | Status Page Renderer Integration | Completed | Render status event sections through Upptime custom HTML without editing generated templates. |
+| 004 | Workflow, Verification, and Release | Completed | Regenerate event data on issue changes, verify public page behavior, and prepare release. |
 
 ## Execution Order
 
@@ -46,6 +46,10 @@ Phase 001 governance/baseline
 - The status page renders announcements/notices/maintenance/reports/manual incident reports outside `Active Incidents`.
 - Real Upptime online/down checks remain unchanged.
 - Public output contains only public-safe fields.
+
+## Closeout Summary
+
+This phase set delivered the public Issue-driven status communication path for NodeClaw Status. The practical impact is that NodeClaw can now publish announcements and similar public status events from GitHub Issues without misclassifying them as Upptime incidents.
 
 ## TODO Coordination
 

@@ -2,7 +2,7 @@
 
 > **Current Version:** 0.1.0
 > **Session:** 519ee145-4708-49b8-9b9e-e57227b2ade7
-> **Status:** Active
+> **Status:** Completed
 > **Target Design:** [../design/status-events.design.md](../design/status-events.design.md)
 > **Full history:** [../changelog/status-events.changelog.md](../changelog/status-events.changelog.md)
 
@@ -67,12 +67,13 @@ The preview proved that Upptime `introMessage`, `customHeadHtml`, and `customBod
 
 ## Verification
 
-- Parse `.upptimerc.yml`.
-- Run compiler locally with fixture support.
-- Parse `api/status-events.json`.
-- Run workflow checks after push.
-- Verify public page contains status event section markers.
-- Verify Issue-driven events do not appear as Upptime `Active Incidents`.
+- Parsed `.upptimerc.yml` successfully.
+- Ran compiler syntax and fixture checks successfully.
+- Parsed local and public `api/status-events.json` successfully.
+- Verified `Setup CI`, fixed `Status Events CI`, and verified the fixed run passed.
+- Verified GitHub Pages deployment after publishing `api/status-events.json` to `gh-pages`.
+- Verified public page contains status event renderer markers.
+- Verified headless browser-rendered DOM shows Issue #6 under `Announcements` and does not show `Active Incidents`.
 
 ## Rollback Approach
 

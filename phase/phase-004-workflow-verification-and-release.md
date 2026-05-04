@@ -2,7 +2,7 @@
 
 **Summary File:** [SUMMARY.md](SUMMARY.md)
 **Phase ID / Name:** `phase-004` — Workflow, Verification, and Release
-**Status:** Active
+**Status:** Completed
 
 ## Design References
 
@@ -19,13 +19,13 @@ Wire status event regeneration into GitHub Actions and verify the public status 
 ## Action Checklist
 
 - [x] Add `.github/workflows/status-events.yml` as NodeClaw-owned custom workflow.
-- [x] Trigger on status event issue changes, issue comments, manual dispatch, and relevant file changes.
-- [ ] Commit generated `api/status-events.json` safely.
-- [ ] Ensure public Pages output can serve the generated JSON.
+- [x] Trigger on status event issue changes, issue comments, manual dispatch, relevant file changes, and successful `Setup CI` completion.
+- [x] Commit generated `api/status-events.json` safely.
+- [x] Ensure public Pages output can serve the generated JSON.
 - [x] Create or normalize repository labels used by status events.
 - [x] Run local static checks.
-- [ ] Run GitHub workflow checks.
-- [ ] Verify the public page renders status events outside incidents.
+- [x] Run GitHub workflow checks.
+- [x] Verify the public page renders status events outside incidents.
 
 ## Out of Scope
 
@@ -35,16 +35,18 @@ Wire status event regeneration into GitHub Actions and verify the public status 
 
 ## Verification
 
-- Local YAML parsing passes before push.
-- Local compiler syntax and fixture checks pass before push.
-- Workflow completes successfully after push.
-- Public page fetches the generated JSON after Pages publish.
-- Test event appears in the correct section.
-- Upptime checks remain unchanged.
+- Local YAML parsing passes.
+- Local compiler syntax and fixture checks pass.
+- `Setup CI` completed successfully after the release push.
+- `Status Events CI` completed successfully after the Pages publishing fix.
+- GitHub Pages deployment completed successfully after `api/status-events.json` reached `gh-pages`.
+- Public `api/status-events.json` returns HTTP 200 with Issue #6 as one active `announcement` event and `invalidCount: 0`.
+- Headless browser-rendered public DOM contains `Announcements`, Issue #6 title/link/summary, and no `Active Incidents` section.
+- NodeNetwork Website and NodeClaw App Health endpoints return HTTP 200 after release.
 
 ## Closeout Summary
 
-Phase 004 is the release gate. It turns the local Status Events Layer into a public verified behavior by pushing the implementation, letting GitHub Actions publish JSON to `gh-pages`, and checking that Issue #6 appears as an announcement outside Upptime `Active Incidents`.
+Phase 004 delivered the public release and verification gate. The practical impact is that NodeClaw can now open a GitHub Issue as a public status event and have it appear on the public status page as an announcement instead of as an Upptime incident.
 
 ## Exit Criteria
 
