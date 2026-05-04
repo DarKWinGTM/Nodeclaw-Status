@@ -13,6 +13,78 @@ status-website:
   name: NodeClaw Status
   introTitle: "NodeClaw System Status"
   introMessage: NodeClaw public status monitoring is active. This page tracks NodeNetwork Website and NodeClaw App Health availability.
+  customHeadHtml: |
+    <style>
+      .nodeclaw-announcement-preview {
+        box-sizing: border-box;
+        width: min(960px, calc(100% - 2rem));
+        margin: 1.5rem auto;
+        color: #172033;
+        font-family: inherit;
+      }
+      .nodeclaw-announcement-preview * {
+        box-sizing: border-box;
+      }
+      .nodeclaw-announcement-grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .nodeclaw-announcement-card {
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(239, 246, 255, 0.96), rgba(255, 255, 255, 0.96));
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+        padding: 1rem;
+      }
+      .nodeclaw-announcement-card--section {
+        background: #ffffff;
+      }
+      .nodeclaw-announcement-kicker {
+        margin: 0 0 0.35rem;
+        color: #2563eb;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .nodeclaw-announcement-title {
+        margin: 0 0 0.45rem;
+        color: #0f172a;
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+      .nodeclaw-announcement-text {
+        margin: 0;
+        color: #475569;
+        line-height: 1.6;
+      }
+      .nodeclaw-announcement-list {
+        margin: 0.75rem 0 0;
+        padding-left: 1.2rem;
+        color: #475569;
+        line-height: 1.6;
+      }
+    </style>
+  customBodyHtml: |
+    <section class="nodeclaw-announcement-preview" aria-label="NodeClaw status announcement preview">
+      <div class="nodeclaw-announcement-grid">
+        <article class="nodeclaw-announcement-card">
+          <p class="nodeclaw-announcement-kicker">Method 2 · customBodyHtml banner</p>
+          <h2 class="nodeclaw-announcement-title">NodeClaw Status monitoring is active</h2>
+          <p class="nodeclaw-announcement-text">This banner is injected by Upptime config, not by a GitHub Issue, so it should not create or imply an incident.</p>
+        </article>
+        <article class="nodeclaw-announcement-card nodeclaw-announcement-card--section">
+          <p class="nodeclaw-announcement-kicker">Method 3 · custom announcement section preview</p>
+          <h2 class="nodeclaw-announcement-title">Operational announcements</h2>
+          <p class="nodeclaw-announcement-text">This section previews how a dedicated announcement area could look if NodeClaw keeps non-incident notes on the status page.</p>
+          <ul class="nodeclaw-announcement-list">
+            <li>NodeClaw public status monitoring has started.</li>
+            <li>Current monitored endpoints: NodeNetwork Website and NodeClaw App Health.</li>
+            <li>No outage, degradation, or maintenance window is expected.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
   navbar:
     - title: Status
       href: /
