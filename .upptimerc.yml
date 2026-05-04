@@ -8,6 +8,9 @@ sites:
   - name: NodeClaw App Health — app.nodenetwork.ovh/health
     url: https://app.nodenetwork.ovh/health
 
+  - name: NodeClaw Runtime Health — runtime.nodenetwork.ovh/health
+    url: https://runtime.nodenetwork.ovh/health
+
 status-website:
   baseUrl: /Nodeclaw-Status
   name: NodeClaw Status
