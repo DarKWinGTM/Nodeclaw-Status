@@ -1,0 +1,36 @@
+{
+  "issues": [
+    {
+      "number": 100,
+      "state": "open",
+      "title": "NodeClaw Status monitoring is now active",
+      "html_url": "https://github.com/DarKWinGTM/Nodeclaw-Status/issues/100",
+      "created_at": "2026-05-04T15:00:00Z",
+      "updated_at": "2026-05-04T15:00:00Z",
+      "labels": [
+        { "name": "status:event" },
+        { "name": "status:type:announcement" },
+        { "name": "status:severity:info" },
+        { "name": "status:state:active" },
+        { "name": "status:pinned" },
+        { "name": "component:status-page" }
+      ],
+      "body": "<!--\ntype: announcement\nseverity: info\nstate: active\npinned: true\nstartsAt: 2026-05-04T15:00:00Z\ncomponents: status-page, app-health\naudience: public\n-->\n\nNodeClaw public status monitoring is now active.\n\nThis page tracks NodeNetwork Website and NodeClaw App Health availability."
+    },
+    {
+      "number": 101,
+      "state": "open",
+      "title": "Private operator-only note should not publish",
+      "html_url": "https://github.com/DarKWinGTM/Nodeclaw-Status/issues/101",
+      "created_at": "2026-05-04T15:05:00Z",
+      "updated_at": "2026-05-04T15:05:00Z",
+      "labels": [
+        { "name": "status:event" },
+        { "name": "status:type:notice" },
+        { "name": "status:severity:minor" },
+        { "name": "status:state:active" }
+      ],
+      "body": "<!--\ntype: notice\nseverity: minor\nstate: active\naudience: internal\n-->\n\nThis should not be published."
+    }
+  ]
+}

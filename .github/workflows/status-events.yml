@@ -1,0 +1,65 @@
+name: Status Events CI
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, edited, labeled, unlabeled, closed, reopened]
+  issue_comment:
+    types: [created, edited, deleted]
+  push:
+    paths:
+      - scripts/generate-status-events.mjs
+      - .github/workflows/status-events.yml
+      - .github/ISSUE_TEMPLATE/status-event.md
+      - .upptimerc.yml
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  generate-status-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate status events JSON
+        run: node scripts/generate-status-events.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit status events JSON to master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add api/status-events.json
+          if git diff --cached --quiet; then
+            echo "status_events_master_changed=false"
+          else
+            git commit -m ":card_file_box: Update status events [skip ci]"
+            git push origin HEAD:master
+            echo "status_events_master_changed=true"
+          fi
+
+      - name: Publish status events JSON to gh-pages
+        run: |
+          git fetch origin gh-pages
+          worktree="$(mktemp -d)"
+          rm -rf "$worktree"
+          git worktree add "$worktree" origin/gh-pages
+          mkdir -p "$worktree/api"
+          cp api/status-events.json "$worktree/api/status-events.json"
+          cd "$worktree"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add api/status-events.json
+          if git diff --cached --quiet; then
+            echo "status_events_pages_changed=false"
+          else
+            git commit -m ":card_file_box: Publish status events [skip ci]"
+            git push origin HEAD:gh-pages
+            echo "status_events_pages_changed=true"
+          fi

@@ -15,76 +15,216 @@ status-website:
   introMessage: NodeClaw public status monitoring is active. This page tracks NodeNetwork Website and NodeClaw App Health availability.
   customHeadHtml: |
     <style>
-      .nodeclaw-announcement-preview {
+      .nodeclaw-status-events {
         box-sizing: border-box;
-        width: min(960px, calc(100% - 2rem));
-        margin: 1.5rem auto;
-        color: #172033;
-        font-family: inherit;
+        margin: 1.25rem 0 1.5rem;
       }
-      .nodeclaw-announcement-preview * {
+      .nodeclaw-status-events[hidden] {
+        display: none;
+      }
+      .nodeclaw-status-events * {
         box-sizing: border-box;
       }
-      .nodeclaw-announcement-grid {
+      .nodeclaw-status-events__grid {
         display: grid;
         gap: 1rem;
       }
-      .nodeclaw-announcement-card {
+      .nodeclaw-status-events__section {
         border: 1px solid rgba(37, 99, 235, 0.18);
         border-radius: 16px;
-        background: linear-gradient(135deg, rgba(239, 246, 255, 0.96), rgba(255, 255, 255, 0.96));
-        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+        background: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
+        box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
         padding: 1rem;
       }
-      .nodeclaw-announcement-card--section {
-        background: #ffffff;
-      }
-      .nodeclaw-announcement-kicker {
-        margin: 0 0 0.35rem;
-        color: #2563eb;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .nodeclaw-announcement-title {
-        margin: 0 0 0.45rem;
+      .nodeclaw-status-events__heading {
+        margin: 0 0 0.75rem;
         color: #0f172a;
         font-size: 1.05rem;
         font-weight: 700;
       }
-      .nodeclaw-announcement-text {
-        margin: 0;
-        color: #475569;
-        line-height: 1.6;
+      .nodeclaw-status-events__list {
+        display: grid;
+        gap: 0.75rem;
       }
-      .nodeclaw-announcement-list {
-        margin: 0.75rem 0 0;
-        padding-left: 1.2rem;
+      .nodeclaw-status-events__item {
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: 14px;
+        background: #ffffff;
+        padding: 0.85rem;
+      }
+      .nodeclaw-status-events__topline {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: space-between;
+        margin-bottom: 0.35rem;
+      }
+      .nodeclaw-status-events__title {
+        color: #0f172a;
+        font-weight: 700;
+      }
+      .nodeclaw-status-events__badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+      .nodeclaw-status-events__badge {
+        border-radius: 999px;
+        background: #e0f2fe;
+        color: #075985;
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 0.16rem 0.5rem;
+        text-transform: uppercase;
+      }
+      .nodeclaw-status-events__badge--minor {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .nodeclaw-status-events__badge--major,
+      .nodeclaw-status-events__badge--critical {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .nodeclaw-status-events__summary {
         color: #475569;
-        line-height: 1.6;
+        line-height: 1.55;
+        margin: 0.25rem 0 0;
+      }
+      .nodeclaw-status-events__meta {
+        align-items: center;
+        color: #64748b;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.82rem;
+        gap: 0.5rem;
+        margin-top: 0.55rem;
+      }
+      .nodeclaw-status-events__link {
+        color: #2563eb;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .nodeclaw-status-events__link:hover {
+        text-decoration: underline;
       }
     </style>
   customBodyHtml: |
-    <section class="nodeclaw-announcement-preview" aria-label="NodeClaw status announcement preview">
-      <div class="nodeclaw-announcement-grid">
-        <article class="nodeclaw-announcement-card">
-          <p class="nodeclaw-announcement-kicker">Method 2 · customBodyHtml banner</p>
-          <h2 class="nodeclaw-announcement-title">NodeClaw Status monitoring is active</h2>
-          <p class="nodeclaw-announcement-text">This banner is injected by Upptime config, not by a GitHub Issue, so it should not create or imply an incident.</p>
-        </article>
-        <article class="nodeclaw-announcement-card nodeclaw-announcement-card--section">
-          <p class="nodeclaw-announcement-kicker">Method 3 · custom announcement section preview</p>
-          <h2 class="nodeclaw-announcement-title">Operational announcements</h2>
-          <p class="nodeclaw-announcement-text">This section previews how a dedicated announcement area could look if NodeClaw keeps non-incident notes on the status page.</p>
-          <ul class="nodeclaw-announcement-list">
-            <li>NodeClaw public status monitoring has started.</li>
-            <li>Current monitored endpoints: NodeNetwork Website and NodeClaw App Health.</li>
-            <li>No outage, degradation, or maintenance window is expected.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+    <section id="nodeclaw-status-events" class="nodeclaw-status-events" aria-label="NodeClaw status events" hidden></section>
+    <script>
+      (function () {
+        var sectionConfig = [
+          { type: 'announcement', title: 'Announcements' },
+          { type: 'notice', title: 'Current Notices' },
+          { type: 'maintenance', title: 'Scheduled Maintenance' },
+          { type: 'operational-report', title: 'Operational Reports' },
+          { type: 'incident', title: 'Manual Incident Reports' }
+        ];
+
+        function onReady(callback) {
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', callback);
+          } else {
+            callback();
+          }
+        }
+
+        function textNode(tag, className, text) {
+          var node = document.createElement(tag);
+          if (className) node.className = className;
+          if (text !== undefined && text !== null) node.textContent = String(text);
+          return node;
+        }
+
+        function statusBaseUrl() {
+          var base = document.querySelector('base');
+          var href = base && base.getAttribute('href') ? base.getAttribute('href') : '/Nodeclaw-Status/';
+          return href.endsWith('/') ? href : href + '/';
+        }
+
+        function formatDate(value) {
+          if (!value) return '';
+          var date = new Date(value);
+          if (Number.isNaN(date.getTime())) return '';
+          return new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(date);
+        }
+
+        function renderBadge(text, modifier) {
+          return textNode('span', 'nodeclaw-status-events__badge' + (modifier ? ' nodeclaw-status-events__badge--' + modifier : ''), text);
+        }
+
+        function renderEvent(event) {
+          var item = textNode('article', 'nodeclaw-status-events__item');
+          var topline = textNode('div', 'nodeclaw-status-events__topline');
+          var title = textNode('div', 'nodeclaw-status-events__title', event.title || 'Status event');
+          var badges = textNode('div', 'nodeclaw-status-events__badges');
+
+          badges.appendChild(renderBadge(event.state || 'active'));
+          badges.appendChild(renderBadge(event.severity || 'info', event.severity || 'info'));
+          if (event.pinned) badges.appendChild(renderBadge('pinned'));
+
+          topline.appendChild(title);
+          topline.appendChild(badges);
+          item.appendChild(topline);
+          item.appendChild(textNode('p', 'nodeclaw-status-events__summary', event.summary || 'No public summary provided.'));
+
+          var meta = textNode('div', 'nodeclaw-status-events__meta');
+          var startsAt = formatDate(event.startsAt || event.scheduledFor || event.publishedAt);
+          if (startsAt) meta.appendChild(textNode('span', '', startsAt));
+          if (Array.isArray(event.components) && event.components.length) {
+            meta.appendChild(textNode('span', '', event.components.join(', ')));
+          }
+          if (event.sourceIssue) {
+            var link = textNode('a', 'nodeclaw-status-events__link', 'Issue #' + (event.issueNumber || event.id));
+            link.href = event.sourceIssue;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            meta.appendChild(link);
+          }
+          item.appendChild(meta);
+          return item;
+        }
+
+        function render(root, data) {
+          var events = Array.isArray(data && data.events) ? data.events : [];
+          var visibleEvents = events.filter(function (event) {
+            return event && ['scheduled', 'active', 'resolved'].indexOf(event.state) !== -1;
+          });
+          if (!visibleEvents.length) return;
+
+          var grid = textNode('div', 'nodeclaw-status-events__grid');
+          sectionConfig.forEach(function (section) {
+            var items = visibleEvents.filter(function (event) { return event.type === section.type; });
+            if (!items.length) return;
+            var group = textNode('section', 'nodeclaw-status-events__section');
+            group.appendChild(textNode('h2', 'nodeclaw-status-events__heading', section.title));
+            var list = textNode('div', 'nodeclaw-status-events__list');
+            items.forEach(function (event) { list.appendChild(renderEvent(event)); });
+            group.appendChild(list);
+            grid.appendChild(group);
+          });
+
+          if (!grid.children.length) return;
+          root.replaceChildren(grid);
+          root.hidden = false;
+
+          var header = document.querySelector('main > header');
+          if (header && root.parentElement !== header.parentElement) {
+            header.insertAdjacentElement('afterend', root);
+          }
+        }
+
+        onReady(function () {
+          var root = document.getElementById('nodeclaw-status-events');
+          if (!root) return;
+          fetch(statusBaseUrl() + 'api/status-events.json', { cache: 'no-store' })
+            .then(function (response) { return response.ok ? response.json() : null; })
+            .then(function (data) { if (data) render(root, data); })
+            .catch(function () { root.hidden = true; });
+        });
+      }());
+    </script>
   navbar:
     - title: Status
       href: /
