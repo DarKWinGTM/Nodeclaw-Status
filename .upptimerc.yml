@@ -2,17 +2,11 @@ owner: DarKWinGTM
 repo: Nodeclaw-Status
 
 sites:
-  - name: NodeClaw App
-    url: https://app.nodenetwork.ovh
-
-  - name: NodeClaw Public Docs
-    url: https://app.nodenetwork.ovh/docs
-
-  - name: NodeClaw Tools Directory
-    url: https://app.nodenetwork.ovh/docs/tools
-
-  - name: NodeNetwork Website
+  - name: NodeNetwork Website — nodenetwork.ovh
     url: https://nodenetwork.ovh
+
+  - name: NodeClaw App — app.nodenetwork.ovh
+    url: https://app.nodenetwork.ovh
 
 status-website:
   baseUrl: /Nodeclaw-Status
