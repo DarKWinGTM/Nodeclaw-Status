@@ -472,6 +472,155 @@ status-website:
         color: rgba(148, 163, 184, 0.48) !important;
         cursor: not-allowed;
       }
+      .nodeclaw-status-timeline {
+        --nodeclaw-timeline-accent: #60a5fa;
+        --nodeclaw-timeline-accent-strong: #bfdbfe;
+        --nodeclaw-timeline-surface: rgba(15, 23, 42, 0.88);
+        --nodeclaw-timeline-muted: #cbd5e1;
+        --nodeclaw-timeline-subtle: #94a3b8;
+        --nodeclaw-timeline-border: rgba(96, 165, 250, 0.34);
+        --nodeclaw-timeline-border-soft: rgba(148, 163, 184, 0.18);
+        box-sizing: border-box;
+        margin: 1.25rem 0 1.5rem;
+      }
+      .nodeclaw-status-timeline[hidden] {
+        display: none;
+      }
+      .nodeclaw-status-timeline * {
+        box-sizing: border-box;
+      }
+      .nodeclaw-status-timeline__board {
+        background:
+          radial-gradient(circle at top left, rgba(59, 130, 246, 0.20), transparent 20rem),
+          linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(30, 41, 59, 0.76));
+        border: 1px solid var(--nodeclaw-timeline-border);
+        border-radius: 22px;
+        box-shadow: 0 24px 64px rgba(2, 6, 23, 0.36);
+        padding: 1rem;
+      }
+      .nodeclaw-status-timeline__head {
+        display: grid;
+        gap: 0.35rem;
+        margin-bottom: 0.9rem;
+      }
+      .nodeclaw-status-timeline__heading {
+        color: #f8fafc;
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+      .nodeclaw-status-timeline__heading::before {
+        background: var(--nodeclaw-timeline-accent);
+        border-radius: 999px;
+        content: '';
+        display: inline-block;
+        height: 0.72rem;
+        margin-right: 0.45rem;
+        width: 0.22rem;
+      }
+      .nodeclaw-status-timeline__description,
+      .nodeclaw-status-timeline__meta,
+      .nodeclaw-status-timeline__empty {
+        color: var(--nodeclaw-timeline-muted);
+        line-height: 1.5;
+        margin: 0;
+      }
+      .nodeclaw-status-timeline__toolbar {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        justify-content: space-between;
+        margin-bottom: 0.9rem;
+      }
+      .nodeclaw-status-timeline__select {
+        background: rgba(2, 6, 23, 0.58) !important;
+        border: 1px solid rgba(147, 197, 253, 0.24) !important;
+        border-radius: 999px;
+        color: #f8fafc !important;
+        font-size: 0.86rem;
+        font-weight: 750;
+        min-height: 2.25rem;
+        padding: 0.28rem 0.75rem !important;
+      }
+      .nodeclaw-status-timeline__list {
+        display: grid;
+        gap: 0.8rem;
+      }
+      .nodeclaw-status-timeline__row {
+        background: linear-gradient(135deg, rgba(2, 6, 23, 0.50), rgba(15, 23, 42, 0.58));
+        border: 1px solid var(--nodeclaw-timeline-border-soft);
+        border-radius: 16px;
+        display: grid;
+        gap: 0.75rem;
+        padding: 0.9rem;
+      }
+      .nodeclaw-status-timeline__row-head {
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        justify-content: space-between;
+      }
+      .nodeclaw-status-timeline__name {
+        color: #f8fafc;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .nodeclaw-status-timeline__url {
+        color: var(--nodeclaw-timeline-subtle);
+        font-size: 0.84rem;
+        margin-top: 0.16rem;
+      }
+      .nodeclaw-status-timeline__uptime {
+        color: #f8fafc;
+        font-size: 1.3rem;
+        font-weight: 860;
+        letter-spacing: -0.03em;
+        text-align: right;
+      }
+      .nodeclaw-status-timeline__uptime-label {
+        color: var(--nodeclaw-timeline-subtle);
+        display: block;
+        font-size: 0.76rem;
+        font-weight: 750;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+      .nodeclaw-status-timeline__segments {
+        align-items: stretch;
+        display: flex;
+        gap: 0.18rem;
+        min-height: 1.25rem;
+      }
+      .nodeclaw-status-timeline__segment {
+        border-radius: 999px;
+        flex: 1 1 0;
+        min-width: 0.32rem;
+      }
+      .nodeclaw-status-timeline__segment--up {
+        background: #6ee7b7;
+      }
+      .nodeclaw-status-timeline__segment--down {
+        background: #fca5a5;
+      }
+      .nodeclaw-status-timeline__segment--degraded {
+        background: #fcd34d;
+      }
+      .nodeclaw-status-timeline__segment--unknown {
+        background: rgba(148, 163, 184, 0.36);
+      }
+      .nodeclaw-status-timeline__incidents {
+        color: var(--nodeclaw-timeline-muted);
+        display: grid;
+        font-size: 0.86rem;
+        gap: 0.35rem;
+      }
+      .nodeclaw-status-timeline__incident {
+        border-left: 3px solid rgba(252, 165, 165, 0.72);
+        padding-left: 0.65rem;
+      }
       @media (min-width: 768px) {
         main.container > header,
         header.svelte-ngkazm {
@@ -483,6 +632,7 @@ status-website:
       }
     </style>
   customBodyHtml: |
+    <section id="nodeclaw-status-timeline" class="nodeclaw-status-timeline" aria-label="NodeClaw status timeline" hidden></section>
     <section id="nodeclaw-status-events" class="nodeclaw-status-events" aria-label="NodeClaw status events" hidden></section>
     <script>
       (function () {
@@ -575,6 +725,127 @@ status-website:
             if (Boolean(left.pinned) !== Boolean(right.pinned)) return left.pinned ? -1 : 1;
             return eventTimestamp(right) - eventTimestamp(left);
           });
+        }
+
+        function formatPercent(value) {
+          if (typeof value !== 'number' || !Number.isFinite(value)) return 'No samples';
+          return (Math.round(value * 100) / 100).toString() + '%';
+        }
+
+        function formatSeconds(value) {
+          if (!value || !Number.isFinite(value)) return 'observed window';
+          if (value < 60) return value + 's observed window';
+          var minutes = Math.round(value / 60);
+          return minutes + 'm observed window';
+        }
+
+        function timelineUrl(path) {
+          if (!path) return '';
+          if (/^https?:\/\//.test(path) || path.charAt(0) === '/') return path;
+          return statusBaseUrl() + path;
+        }
+
+        function renderTimelineSegments(segments) {
+          var bar = textNode('div', 'nodeclaw-status-timeline__segments');
+          if (!Array.isArray(segments) || !segments.length) {
+            bar.appendChild(textNode('div', 'nodeclaw-status-timeline__empty', 'No samples in this window.'));
+            return bar;
+          }
+          segments.forEach(function (segment) {
+            var state = segment.state || 'unknown';
+            var node = textNode('span', 'nodeclaw-status-timeline__segment nodeclaw-status-timeline__segment--' + state);
+            node.title = state + (segment.statusCode ? ' HTTP ' + segment.statusCode : '') + ' · ' + formatDate(segment.startsAt);
+            node.setAttribute('aria-label', node.title);
+            bar.appendChild(node);
+          });
+          return bar;
+        }
+
+        function renderTimelineIncidents(incidents) {
+          var list = textNode('div', 'nodeclaw-status-timeline__incidents');
+          if (!Array.isArray(incidents) || !incidents.length) return list;
+          incidents.slice(0, 3).forEach(function (incident) {
+            var text = (incident.summary || 'Incident samples observed.') + ' ' + formatSeconds(incident.observedDurationSeconds);
+            list.appendChild(textNode('div', 'nodeclaw-status-timeline__incident', text));
+          });
+          return list;
+        }
+
+        function renderTimelineRow(component, isDaily) {
+          var row = textNode('article', 'nodeclaw-status-timeline__row');
+          var head = textNode('div', 'nodeclaw-status-timeline__row-head');
+          var identity = textNode('div', '');
+          var uptime = component.uptime || {};
+          var percent = isDaily || typeof uptime.upptimeUptimePercent !== 'number'
+            ? uptime.observedUptimePercent
+            : uptime.upptimeUptimePercent;
+          var label = isDaily || typeof uptime.upptimeUptimePercent !== 'number' ? 'observed uptime' : '24h uptime';
+          var metric = textNode('div', 'nodeclaw-status-timeline__uptime', formatPercent(percent));
+          var sampleText = 'Samples ' + (uptime.sampleCount || 0)
+            + ' · down ' + (uptime.downSampleCount || 0)
+            + ' · degraded ' + (uptime.degradedSampleCount || 0)
+            + ' · incidents ' + (uptime.incidentCount || 0);
+
+          identity.appendChild(textNode('div', 'nodeclaw-status-timeline__name', component.name || component.slug || 'Component'));
+          if (component.publicUrl) identity.appendChild(textNode('div', 'nodeclaw-status-timeline__url', component.publicUrl));
+          metric.appendChild(textNode('span', 'nodeclaw-status-timeline__uptime-label', label));
+          head.appendChild(identity);
+          head.appendChild(metric);
+          row.appendChild(head);
+          row.appendChild(renderTimelineSegments(component.segments));
+          row.appendChild(textNode('p', 'nodeclaw-status-timeline__meta', sampleText));
+          row.appendChild(renderTimelineIncidents(component.incidents));
+          return row;
+        }
+
+        function renderTimeline(root, indexData, dayData, selectedDay) {
+          var components = Array.isArray(dayData && dayData.components) ? dayData.components : (Array.isArray(indexData && indexData.components) ? indexData.components : []);
+          if (!components.length) return;
+
+          var isDaily = Boolean(dayData);
+          var board = textNode('section', 'nodeclaw-status-timeline__board');
+          var head = textNode('div', 'nodeclaw-status-timeline__head');
+          var toolbar = textNode('div', 'nodeclaw-status-timeline__toolbar');
+          var select = textNode('select', 'nodeclaw-status-timeline__select');
+          var list = textNode('div', 'nodeclaw-status-timeline__list');
+          var days = Array.isArray(indexData.availableDays) ? indexData.availableDays : [];
+          var windowLabel = isDaily ? selectedDay : 'latest 24 hours';
+
+          head.appendChild(textNode('h2', 'nodeclaw-status-timeline__heading', 'Uptime Timeline'));
+          head.appendChild(textNode('p', 'nodeclaw-status-timeline__description', 'Uptime %, recent check samples, and observed incident windows compiled from Upptime/Git history.'));
+
+          select.appendChild(textNode('option', '', 'Latest 24 hours'));
+          select.firstChild.value = '24h';
+          days.forEach(function (day) {
+            var option = textNode('option', '', day.date);
+            option.value = day.date;
+            select.appendChild(option);
+          });
+          select.value = selectedDay || '24h';
+          select.setAttribute('aria-label', 'Select status timeline day');
+          select.addEventListener('change', function () {
+            if (select.value === '24h') {
+              renderTimeline(root, indexData, null, null);
+              return;
+            }
+            var selected = days.find(function (day) { return day.date === select.value; });
+            if (!selected) return;
+            fetch(timelineUrl(selected.path), { cache: 'no-store' })
+              .then(function (response) { return response.ok ? response.json() : null; })
+              .then(function (data) { if (data) renderTimeline(root, indexData, data, selected.date); });
+          });
+
+          toolbar.appendChild(textNode('div', 'nodeclaw-status-timeline__meta', windowLabel));
+          if (days.length) toolbar.appendChild(select);
+          components.forEach(function (component) { list.appendChild(renderTimelineRow(component, isDaily)); });
+          board.appendChild(head);
+          board.appendChild(toolbar);
+          board.appendChild(list);
+          root.replaceChildren(board);
+          root.hidden = false;
+
+          var header = document.querySelector('main > header');
+          if (header) header.insertAdjacentElement('afterend', root);
         }
 
         function render(root, data) {
@@ -672,12 +943,20 @@ status-website:
           root.hidden = false;
 
           var header = document.querySelector('main > header');
-          if (header && root.parentElement !== header.parentElement) {
-            header.insertAdjacentElement('afterend', root);
-          }
+          var timelineRoot = document.getElementById('nodeclaw-status-timeline');
+          var anchor = timelineRoot && timelineRoot.parentElement === (header && header.parentElement) ? timelineRoot : header;
+          if (anchor) anchor.insertAdjacentElement('afterend', root);
         }
 
         onReady(function () {
+          var timelineRoot = document.getElementById('nodeclaw-status-timeline');
+          if (timelineRoot) {
+            fetch(statusBaseUrl() + 'api/status-timeline/index.json', { cache: 'no-store' })
+              .then(function (response) { return response.ok ? response.json() : null; })
+              .then(function (data) { if (data) renderTimeline(timelineRoot, data, null, null); })
+              .catch(function () { timelineRoot.hidden = true; });
+          }
+
           var root = document.getElementById('nodeclaw-status-events');
           if (!root) return;
           fetch(statusBaseUrl() + 'api/status-events.json', { cache: 'no-store' })

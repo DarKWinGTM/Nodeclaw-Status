@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-05-08T00:00:00.000Z",
+  "components": [
+    {
+      "slug": "runtime-health",
+      "name": "NodeClaw Runtime Health",
+      "publicUrl": "https://runtime.nodenetwork.ovh/health",
+      "upptimeUptimePercent": "100%",
+      "samples": [
+        {
+          "timestamp": "2026-05-06T23:33:32.724Z",
+          "status": "up",
+          "statusCode": 200,
+          "responseTimeMs": 218
+        },
+        {
+          "timestamp": "2026-05-06T23:38:32.724Z",
+          "status": "down",
+          "statusCode": 502,
+          "responseTimeMs": 714
+        },
+        {
+          "timestamp": "2026-05-06T23:43:32.724Z",
+          "status": "up",
+          "statusCode": 200,
+          "responseTimeMs": 245
+        },
+        {
+          "timestamp": "2026-05-07T14:10:00.000Z",
+          "status": "up",
+          "statusCode": 200,
+          "responseTimeMs": 231
+        }
+      ]
+    },
+    {
+      "slug": "node-network-website-nodenetwork-ovh",
+      "name": "NodeNetwork Website — nodenetwork.ovh",
+      "publicUrl": "https://nodenetwork.ovh",
+      "upptimeUptimePercent": "100%",
+      "samples": [
+        {
+          "timestamp": "2026-05-07T00:00:00.000Z",
+          "status": "up",
+          "statusCode": 200,
+          "responseTimeMs": 851
+        },
+        {
+          "timestamp": "2026-05-07T12:00:00.000Z",
+          "status": "up",
+          "statusCode": 200,
+          "responseTimeMs": 830
+        }
+      ]
+    }
+  ]
+}

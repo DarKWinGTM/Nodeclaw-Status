@@ -1,8 +1,95 @@
 # NodeClaw Status Events Changelog
 
 > **Parent Document:** [../design/status-events.design.md](../design/status-events.design.md)
-> **Current Version:** 0.1.0
+> **Current Version:** 0.2.3
 > **Session:** 519ee145-4708-49b8-9b9e-e57227b2ade7
+
+## 0.2.3 — 2026-05-08
+
+### Changed
+
+- Updated NodeClaw-owned `Status Events CI` and `Status Timeline CI` workflows to republish public API JSON after successful Upptime `Static Site CI` runs.
+- Documented that generated Upptime static-site deployment can replace the public `gh-pages` output without preserving custom `api/` files, so NodeClaw API workflows restore those files instead of editing generated Upptime workflow bodies.
+
+### Verification
+
+- Public `https://darkwingtm.github.io/Nodeclaw-Status/api/status-events.json` and `api/status-timeline/index.json` currently return HTTP `404` before release.
+- Remote `gh-pages` root was checked and did not contain an `api/` directory before this local fix is committed/pushed.
+- `status-events.yml` and `status-timeline.yml` remain NodeClaw-owned workflows and do not modify generated Upptime workflow bodies.
+
+### Notes
+
+- This version still does not claim GitHub Pages deployment, public rendered-page verification, or post-release API availability.
+- Release closeout must verify that both Status Events JSON and Status Timeline JSON are present on `gh-pages` after `Static Site CI` and NodeClaw API workflow runs complete.
+
+---
+
+## 0.2.2 — 2026-05-08
+
+### Added
+
+- Added `scripts/generate-status-timeline.mjs` to compile Upptime/Git history into `api/status-timeline/index.json` and daily timeline JSON.
+- Added fixture coverage for HTTP `502` down samples, observed uptime calculation, sample counts, and grouped incident windows.
+- Added the Status Timeline renderer in `.upptimerc.yml` so Uptime %, timeline pills, sample counts, and daily archive selection render before Upptime live incident/status sections.
+- Added the NodeClaw-owned `Status Timeline CI` workflow for regenerating and publishing timeline JSON without editing generated Upptime workflow bodies.
+
+### Changed
+
+- Generated local `api/status-timeline/*` JSON using the timeline compiler so the renderer has a static contract to read.
+- Synced design, operator docs, TODO, Phase 005, phase summary, and patch wording from planned target to local implementation with release verification pending.
+
+### Verification
+
+- `node --check scripts/generate-status-timeline.mjs` passed.
+- Fixture dry-run verified HTTP `502`, observed uptime, down sample count, and incident grouping.
+- Git/history mode dry-run produced timeline output for the checked local history scope.
+- Extracted `.upptimerc.yml` inline renderer script passed `node --check`.
+- Generated timeline JSON shape and public-safe fields passed local audit.
+
+### Notes
+
+- This version does not claim GitHub Pages deployment, public rendered-page verification, or post-release timeline workflow execution.
+- Local history in this checkout may be stale or sparse compared with the full remote Upptime/Git history; the workflow uses full checkout history through `fetch-depth: 0`.
+
+---
+
+## 0.2.1 — 2026-05-08
+
+### Changed
+
+- Refined the Phase 005 Status Timeline target to show Uptime % beside component timeline rows instead of relying only on incident pills/history.
+- Added separate wording for Upptime-generated uptime percentages and sample/window-derived `observed uptime` percentages.
+- Expanded the timeline JSON target with uptime summary fields, sample counts, down-sample counts, and incident counts.
+- Updated design, operator docs, TODO, Phase 005, phase summary, and patch wording so Uptime % remains target behavior without claiming implementation.
+
+### Notes
+
+- This version does not claim uptime-percent rendering, timeline compiler output, live public status changes, or GitHub Pages deployment.
+- Rounded `100%` values must not hide visible down/degraded timeline segments or incident counts.
+
+---
+
+## 0.2.0 — 2026-05-08
+
+### Added
+
+- Defined the Status Timeline and Incident History target as the v0.2.0 successor to the Issue-driven Status Events layer.
+- Added the target static JSON contract for `api/status-timeline/index.json` and `api/status-timeline/days/YYYY-MM-DD.json`.
+- Added Phase 005 as the planned execution slice for compiling Upptime/Git check history into public 24-hour and daily incident timelines.
+- Added the active review patch `patch/status-timeline-and-incident-history.patch.md` for the timeline/history change surface.
+
+### Changed
+
+- Expanded the design boundary so Upptime remains the monitor/current-status owner while NodeClaw owns public timeline rendering from compiled static JSON.
+- Updated operator docs to explain 24-hour timeline behavior, daily archive lookback, incident grouping, HTTP `502` down samples, and observed-duration wording.
+- Updated TODO tracking to keep implementation and verification work pending after governance sync.
+
+### Notes
+
+- This version does not claim the timeline compiler, timeline workflow, timeline renderer, public timeline JSON, live deployment, or rendered public timeline are implemented yet.
+- The key evidence basis is that Upptime/Git history can contain HTTP `502` down samples while the current public page can still show only the current operational state or rounded uptime summaries.
+
+---
 
 ## 0.1.0 — 2026-05-04
 

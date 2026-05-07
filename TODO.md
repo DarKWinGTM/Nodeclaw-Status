@@ -1,5 +1,5 @@
 # Nodeclaw-Status - TODO
-> **Last Updated:** 2026-05-05
+> **Last Updated:** 2026-05-08
 
 ---
 
@@ -24,14 +24,20 @@
 - Verified NodeNetwork Website and NodeClaw App Health endpoints return HTTP 200 after release.
 - Expanded the status page theme from the injected status event section to a whole-page NodeNetwork-aligned dark blue/slate visual treatment.
 - Refined the Live Status timeframe selector into a segmented pill control without individual boxed radio label borders.
+- Defined the v0.2.0 Status Timeline and Incident History governance target across design, docs, changelog, phase, patch, and TODO.
+- Refined the v0.2.1 Status Timeline target to include Uptime % display beside timeline rows with observed-uptime wording and sample-count context.
+- Implemented the v0.2.2 local Status Timeline compiler, fixture, generated JSON, renderer, and workflow with release verification pending.
+- Hardened v0.2.3 NodeClaw-owned API workflows so Status Events and Status Timeline JSON republish after Upptime `Static Site CI` replaces the public `gh-pages` output.
 
 ---
 
 ## 📋 Tasks To Do
 
-### Status Events Layer
+### Status Timeline and Incident History
 
-No pending tasks for the v0.1.0 Status Events release.
+- [ ] Verify the rendered public status page shows Uptime %, 24-hour timeline history, and daily archive outside Upptime `Active Incidents` after commit/push and GitHub Pages deployment.
+- [ ] Audit deployed status API JSON for public-safe fields only: Status Events fields plus timeline component name/slug, uptime percentage, sample counts, observed state, timestamps, status code, response-time summary, and public incident summary.
+- [ ] Confirm the first post-release `Status Events CI` and `Status Timeline CI` runs restore `api/status-events.json` and `api/status-timeline/*` after `Static Site CI`, with timeline generation using full Git history through `fetch-depth: 0`.
 
 ---
 
@@ -44,3 +50,7 @@ No pending tasks for the v0.1.0 Status Events release.
 | 2026-05-04 | Released and verified Issue #6 public announcement rendering outside Upptime `Active Incidents`. |
 | 2026-05-04 | Expanded the Upptime status page theme to match NodeNetwork's dark blue/slate tone across the whole page. |
 | 2026-05-05 | Refined the Live Status timeframe selector into a smoother segmented pill control. |
+| 2026-05-08 | Synced the v0.2.0 Status Timeline and Incident History governance target with design, docs, changelog, Phase 005, active patch, and pending implementation TODOs. |
+| 2026-05-08 | Refined the Status Timeline target to v0.2.1 with Uptime % display, observed uptime wording, sample counts, and pending implementation verification tasks. |
+| 2026-05-08 | Implemented the v0.2.2 local Status Timeline compiler, fixture, static JSON, custom renderer, and workflow; public release verification remains pending. |
+| 2026-05-08 | Hardened the v0.2.3 API publish path so NodeClaw Status Events and Timeline JSON republish after Upptime `Static Site CI` replaces `gh-pages` output. |
