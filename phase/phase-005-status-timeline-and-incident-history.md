@@ -2,7 +2,7 @@
 
 **Summary File:** [SUMMARY.md](SUMMARY.md)
 **Phase ID / Name:** `phase-005` — Status Timeline and Incident History
-**Status:** Release verification pending
+**Status:** Completed
 
 ## Design References
 
@@ -30,13 +30,13 @@ Upptime can record HTTP 502/down samples in Git history, but the current public 
 
 ## Completion Gate
 
-Phase 005 source implementation is complete locally when fixture/local generation, fixed 24-hour bucket output checks, renderer source checks, generated JSON shape checks, NodeClaw-owned API workflow republish hardening, serialized API publish concurrency, and governance sync pass. Phase 005 release closeout remains pending until post-deployment verification proves that Uptime %, fixed public timeline bars, daily incident history, `api/status-events.json`, and `api/status-timeline/*` appear separately from Upptime `Active Incidents` and publish only public-safe fields.
+Phase 005 is complete when fixture/local generation, fixed 24-hour bucket output checks, renderer source checks, generated JSON shape checks, NodeClaw-owned API workflow republish hardening, serialized API publish concurrency, governance sync, and post-deployment verification pass. Release closeout is complete for the checked v0.2.4 scope: Uptime %, fixed public timeline bars, daily incident history, `api/status-events.json`, and `api/status-timeline/*` appear separately from Upptime `Active Incidents` and publish only public-safe fields.
 
 ## Entry Conditions
 
 - Status Events v0.2.0 design target is recorded.
 - The active patch identifies the timeline before/after change surface.
-- `TODO.md` tracks post-release public rendered-page, deployed JSON, and workflow-run verification that remains after local implementation and governance sync.
+- `TODO.md` records post-release public rendered-page, deployed JSON, and workflow-run verification as completed after v0.2.4 release verification.
 
 ## Action Checklist
 
@@ -52,7 +52,7 @@ Phase 005 source implementation is complete locally when fixture/local generatio
 - [x] Harden NodeClaw-owned Status Events and Status Timeline workflows to republish API JSON after successful Upptime `Static Site CI` runs.
 - [x] Refine timeline output so each component has exactly 24 fixed hourly bars instead of one bar per observed sample.
 - [x] Serialize NodeClaw-owned API publish workflows through one shared concurrency group to avoid post-static `gh-pages` publish races.
-- [ ] Verify public API JSON availability and rendered status page behavior after release.
+- [x] Verify public API JSON availability and rendered status page behavior after release.
 
 ## Out of Scope
 
@@ -75,7 +75,7 @@ Phase 005 source implementation is complete locally when fixture/local generatio
 
 ## Development Verification / TestKit Coverage
 
-Local verification completed:
+Local and public verification completed:
 
 - Fixture timeline generation covers at least one HTTP `502` runtime-health sample, uptime percentage/sample-count output, and exactly 24 fixed hourly segments per component.
 - JSON schema/shape validation for index and day files passed in local audit, including 24 segments per component.
@@ -85,18 +85,21 @@ Local verification completed:
 - Public pre-release evidence confirmed `api/status-events.json` and `api/status-timeline/index.json` returned HTTP `404` while the checked remote `gh-pages` output had no `api/` directory.
 - Post-static verification before the v0.2.4 race fix found `Status Events CI` passed while `Status Timeline CI` failed during a concurrent `gh-pages` publish.
 - Workflow source audit confirms NodeClaw-owned `Status Events CI` and `Status Timeline CI` republish API JSON after successful Upptime `Static Site CI` runs through one shared API publish concurrency group without editing generated Upptime workflow bodies.
+- Release commit `6a1ad1f` was pushed to `master`; `Setup CI`, manually triggered `Static Site CI`, post-static `Status Events CI`, post-static `Status Timeline CI`, and final GitHub Pages deployment passed in the checked release scope.
+- Deployed `api/status-events.json`, `api/status-timeline/index.json`, and all advertised timeline day JSON returned HTTP `200`; timeline index/day JSON retained exactly 24 segments per component and passed bounded public-safety field checks.
+- Headless rendered-page verification confirmed the public `Uptime Timeline` section renders before Upptime status sections, outside `Active Incidents`, with 24 `nodeclaw-status-timeline__segment` elements for each visible component row.
 
 ## TODO and Changelog Coordination
 
 - Changelog version: `0.2.4`.
 - Durable tasks live in [../TODO.md](../TODO.md).
-- Local implementation and local verification are complete for the fixed-bucket timeline and API publish serialization; durable TODO now tracks post-release public rendered-page, deployed JSON, and workflow-run verification.
+- Local implementation, local verification, and post-release public verification are complete for the fixed-bucket timeline and API publish serialization; durable TODO records the v0.2.4 release verification as completed.
 
 ## Closeout Summary
 
-Phase 005 local implementation and v0.2.4 fixed-bucket/API publication hardening are complete and governance is synced. The practical target is now implemented in source: users should be able to see uptime percentages plus fixed 24-hour bars and recent/per-day observed outage history on the public status page after release, while `api/status-events.json` and `api/status-timeline/*` should be restored after Upptime static-site deploys without `gh-pages` publish races. Public rendered-page and deployed-API verification remain pending after deployment.
+Phase 005 v0.2.4 fixed-bucket/API publication hardening is complete, released, and publicly verified in the checked GitHub Pages/API/workflow scope. Users can see uptime percentages plus fixed 24-hour bars and recent/per-day observed outage history on the public status page, while `api/status-events.json` and `api/status-timeline/*` are restored after Upptime static-site deploys without `gh-pages` publish races.
 
 ## Next Possible Phases
 
 - Public update markers for incident issue comments if timeline incidents later need human-authored updates attached to grouped check windows.
-- Broader incident analytics only after the basic 24-hour and daily timeline renderer is verified.
+- Broader incident analytics can follow as a later phase now that the basic 24-hour and daily timeline renderer is publicly verified.

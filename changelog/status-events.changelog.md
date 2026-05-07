@@ -18,10 +18,13 @@
 - Fixture dry-run verified 24 timeline segments per component and preserved an HTTP `502` down bucket.
 - Generated `api/status-timeline/index.json` and all checked day files have 24 segments per component and no forbidden public-safety field names in the checked scope.
 - Extracted `.upptimerc.yml` inline renderer script passed `node --check`.
+- Release commit `6a1ad1f` passed `Setup CI`, manually triggered `Static Site CI`, post-static `Status Events CI`, post-static `Status Timeline CI`, and final GitHub Pages deployment.
+- Public `api/status-events.json`, `api/status-timeline/index.json`, and advertised timeline day JSON returned HTTP `200`; deployed timeline JSON kept 24 segments per component.
+- Headless browser verification confirmed the public `Uptime Timeline` renders outside Upptime `Active Incidents` with 24 segment elements for each visible component row.
 
 ### Notes
 
-- This version does not yet claim the fixed 24-hour bars are visible on GitHub Pages or that both post-static API restoration workflows pass after the new concurrency setting; those remain release verification gates after commit/push/deploy.
+- Public release verification for v0.2.4 is complete in the checked GitHub Pages/API/workflow scope.
 - Pre-fix post-static verification found `Status Events CI` passed while `Status Timeline CI` failed during `gh-pages` publish because the two API workflows raced each other.
 
 ---
@@ -58,7 +61,7 @@
 ### Changed
 
 - Generated local `api/status-timeline/*` JSON using the timeline compiler so the renderer has a static contract to read.
-- Synced design, operator docs, TODO, Phase 005, phase summary, and patch wording from planned target to local implementation with release verification pending.
+- Synced design, operator docs, TODO, Phase 005, phase summary, and patch wording from planned target to local implementation while release verification was still open.
 
 ### Verification
 

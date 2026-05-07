@@ -1,7 +1,7 @@
 # NodeClaw Status Events Design
 
 > **Current Version:** 0.2.4
-> **Status:** Active local implementation; release verification pending
+> **Status:** Released and publicly verified
 > **Session:** 519ee145-4708-49b8-9b9e-e57227b2ade7
 > **Full history:** [../changelog/status-events.changelog.md](../changelog/status-events.changelog.md)
 
@@ -388,7 +388,7 @@ Past Incidents
 
 Existing Upptime workflow files warn that direct edits may be overwritten by template updates. NodeClaw custom status-events and status-timeline workflows and scripts must be additive and clearly owned by NodeClaw rather than editing generated Upptime workflow bodies.
 
-Generated Upptime `Static Site CI` may republish the public `gh-pages` site without preserving custom `api/` files. NodeClaw-owned API workflows therefore republish `api/status-events.json` and `api/status-timeline/*` after successful `Static Site CI` runs, with `keep_files: true`, so public JSON remains available without editing generated Upptime workflow bodies. The NodeClaw-owned API workflows share one API publish concurrency group so their `gh-pages` publishes serialize instead of racing each other after `Static Site CI`.
+Generated Upptime `Static Site CI` may republish the public `gh-pages` site without preserving custom `api/` files. NodeClaw-owned API workflows therefore republish `api/status-events.json` and `api/status-timeline/*` after successful `Static Site CI` runs, with `keep_files: true`, so public JSON remains available without editing generated Upptime workflow bodies. The NodeClaw-owned API workflows use shared API publish concurrency through one API publish concurrency group so their `gh-pages` publishes serialize instead of racing each other after `Static Site CI`.
 
 ## Verification
 

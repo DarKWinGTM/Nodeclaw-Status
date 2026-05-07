@@ -104,7 +104,7 @@ It renders separate public sections before the Upptime status summary:
 - Operational Reports
 - Manual Incident Reports
 
-Phase 005 has local source and fixture verification for timeline generation/rendering. Until the fixed-bucket timeline and serialized API publish changes are committed, pushed, and verified after GitHub Pages deployment, the live public page should still be treated as release-verification pending. Both Status Events and timeline sections are intentionally separate from Upptime `Active Incidents`.
+Phase 005 is released and publicly verified for the v0.2.4 scope: GitHub Pages renders the fixed-bucket timeline outside Upptime `Active Incidents`, deployed JSON returns HTTP `200`, and post-`Static Site CI` API restoration workflows passed with shared publish concurrency. Both Status Events and timeline sections are intentionally separate from Upptime `Active Incidents`.
 
 The public JSON files must remain available on `gh-pages` after Upptime rebuilds the static site. NodeClaw-owned Status Events and Status Timeline workflows republish their API JSON after successful `Static Site CI` runs because the generated Upptime site deploy can replace the public page output without preserving custom `api/` files. The two API publish workflows share one concurrency group so their `gh-pages` publishes serialize instead of racing each other.
 

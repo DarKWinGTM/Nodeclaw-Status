@@ -26,20 +26,19 @@
 - Refined the Live Status timeframe selector into a segmented pill control without individual boxed radio label borders.
 - Defined the v0.2.0 Status Timeline and Incident History governance target across design, docs, changelog, phase, patch, and TODO.
 - Refined the v0.2.1 Status Timeline target to include Uptime % display beside timeline rows with observed-uptime wording and sample-count context.
-- Implemented the v0.2.2 local Status Timeline compiler, fixture, generated JSON, renderer, and workflow with release verification pending.
+- Implemented the v0.2.2 local Status Timeline compiler, fixture, generated JSON, renderer, and workflow with release verification still open at that time.
 - Hardened v0.2.3 NodeClaw-owned API workflows so Status Events and Status Timeline JSON republish after Upptime `Static Site CI` replaces the public `gh-pages` output.
 - Implemented the v0.2.4 local fixed 24-hour timeline buckets so component timelines render exactly 24 hourly bars instead of shrinking to one bar per observed sample.
 - Serialized the v0.2.4 NodeClaw-owned API publish workflows through one shared concurrency group to avoid post-`Static Site CI` `gh-pages` publish races.
+- Verified the rendered public v0.2.4 status page shows Uptime %, fixed 24-hour timeline bars, and daily archive controls outside Upptime `Active Incidents`.
+- Audited deployed Status Events and Status Timeline API JSON for public-safe fields and fixed 24-segment timeline shape.
+- Confirmed post-release `Status Events CI` and `Status Timeline CI` restored API JSON after `Static Site CI` without `gh-pages` publish races.
 
 ---
 
 ## 📋 Tasks To Do
 
-### Status Timeline and Incident History
-
-- [ ] Verify the rendered public status page shows Uptime %, fixed 24-hour timeline bars with the rightmost bar ending at the current window end, and daily archive outside Upptime `Active Incidents` after commit/push and GitHub Pages deployment.
-- [ ] Audit deployed status API JSON for public-safe fields only: Status Events fields plus timeline component name/slug, uptime percentage, sample counts, fixed hourly bucket state, timestamps, status code, response-time summary, and public incident summary.
-- [ ] Confirm the post-release `Status Events CI` and `Status Timeline CI` runs restore `api/status-events.json` and `api/status-timeline/*` after `Static Site CI`, with shared publish concurrency preventing `gh-pages` push races and timeline generation using full Git history through `fetch-depth: 0`.
+_No active Status Timeline and Incident History release tasks remain after v0.2.4 public verification._
 
 ---
 
@@ -54,6 +53,7 @@
 | 2026-05-05 | Refined the Live Status timeframe selector into a smoother segmented pill control. |
 | 2026-05-08 | Synced the v0.2.0 Status Timeline and Incident History governance target with design, docs, changelog, Phase 005, active patch, and pending implementation TODOs. |
 | 2026-05-08 | Refined the Status Timeline target to v0.2.1 with Uptime % display, observed uptime wording, sample counts, and pending implementation verification tasks. |
-| 2026-05-08 | Implemented the v0.2.2 local Status Timeline compiler, fixture, static JSON, custom renderer, and workflow; public release verification remains pending. |
+| 2026-05-08 | Implemented the v0.2.2 local Status Timeline compiler, fixture, static JSON, custom renderer, and workflow; public release verification was still open at that time. |
 | 2026-05-08 | Hardened the v0.2.3 API publish path so NodeClaw Status Events and Timeline JSON republish after Upptime `Static Site CI` replaces `gh-pages` output. |
 | 2026-05-08 | Implemented the v0.2.4 fixed 24-hour timeline bucket renderer contract and serialized NodeClaw API publishes to avoid post-static `gh-pages` races. |
+| 2026-05-08 | Released and publicly verified the v0.2.4 fixed timeline/API restoration scope on GitHub Pages. |

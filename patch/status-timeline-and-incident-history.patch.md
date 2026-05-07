@@ -2,7 +2,7 @@
 
 > **Current Version:** 0.2.4
 > **Session:** 519ee145-4708-49b8-9b9e-e57227b2ade7
-> **Status:** Active local implementation; release verification pending
+> **Status:** Released and publicly verified
 > **Target Design:** [../design/status-events.design.md](../design/status-events.design.md)
 > **Full history:** [../changelog/status-events.changelog.md](../changelog/status-events.changelog.md)
 
@@ -18,7 +18,7 @@ Post-static verification then exposed two release-fix refinements: the visible t
 
 The change is additive. Upptime remains the monitor and current-state/status-summary owner, while NodeClaw adds a static timeline data contract, compiler, workflow, renderer, and API publication restoration path that make observed outage history and uptime percentage context visible. The renderer does not query raw Git history at page load; the NodeClaw-owned compiler normalizes Git/Upptime check data into public-safe JSON first.
 
-The v0.2.4 source implementation now exists locally: timeline compiler, HTTP `502` fixture coverage, generated static timeline JSON, `.upptimerc.yml` timeline renderer, `Status Timeline CI`, API republish hardening for both `Status Events CI` and `Status Timeline CI`, fixed 24-hour timeline bucket output, and serialized API publish workflow concurrency are present. This patch does not claim GitHub Pages deployment, public rendered-page verification, deployed API availability after the v0.2.4 push, or successful post-fix workflow restoration.
+The v0.2.4 source implementation is released and publicly verified in the checked scope: timeline compiler, HTTP `502` fixture coverage, generated static timeline JSON, `.upptimerc.yml` timeline renderer, `Status Timeline CI`, API republish hardening for both `Status Events CI` and `Status Timeline CI`, fixed 24-hour timeline bucket output, and serialized API publish workflow concurrency are present. Release commit `6a1ad1f` passed GitHub Pages/API/workflow verification after the v0.2.4 push.
 
 Generated Upptime workflow bodies remain Upptime-owned and are not edited by this patch. NodeClaw-owned workflows restore `api/status-events.json` and `api/status-timeline/*` after successful `Static Site CI` runs instead of trying to change generated Upptime deployment behavior.
 
@@ -42,8 +42,8 @@ Generated Upptime workflow bodies remain Upptime-owned and are not edited by thi
 
 - **Target artifacts:** `phase/SUMMARY.md`, `phase/phase-005-status-timeline-and-incident-history.md`
 - **Change type:** additive/replacement
-- **Before:** Phase 005 recorded local timeline implementation and release verification pending, but did not yet record the fixed 24-hour bucket UI correction or the post-static workflow publish race.
-- **After:** Phase 005 records the v0.2.4 fixed-bucket timeline correction, shared API publish concurrency, the pre-release public `404` evidence, the post-static timeline workflow race evidence, NodeClaw-owned workflow restoration after `Static Site CI`, and release gates for rendered page plus deployed API availability verification.
+- **Before:** Phase 005 recorded local timeline implementation with release verification still open, but did not yet record the fixed 24-hour bucket UI correction or the post-static workflow publish race.
+- **After:** Phase 005 records the v0.2.4 fixed-bucket timeline correction, shared API publish concurrency, the pre-release public `404` evidence, the post-static timeline workflow race evidence, NodeClaw-owned workflow restoration after `Static Site CI`, and completed release verification for the rendered page plus deployed API availability.
 
 ### 4. Add timeline compiler and fixed-bucket JSON contract
 
@@ -85,11 +85,11 @@ Generated Upptime workflow bodies remain Upptime-owned and are not edited by thi
 - **Target artifacts:** `changelog/status-events.changelog.md`, `TODO.md`
 - **Change type:** replacement/additive
 - **Before:** version authority recorded `0.2.3` as the local API publication hardening version and TODO tracked post-release rendered-page/deployed-JSON verification tasks.
-- **After:** changelog records `0.2.4` as the local fixed-bucket timeline and serialized API publish version, while TODO moves local fixed-bucket/API-serialization implementation to completed and leaves post-release rendered-page/deployed-JSON/workflow verification tasks pending.
+- **After:** changelog records `0.2.4` as the fixed-bucket timeline and serialized API publish version with public release verification complete, while TODO moves local implementation and post-release rendered-page/deployed-JSON/workflow verification tasks to completed.
 
 ## Verification
 
-Local implementation verification completed across v0.2.2, v0.2.3, and v0.2.4:
+Implementation and release verification completed across v0.2.2, v0.2.3, and v0.2.4:
 
 - `node --check scripts/generate-status-timeline.mjs` passed.
 - Fixture dry-run verified HTTP `502`, observed uptime percentage, down sample count, grouped incident output, 24 fixed segments per component, and an HTTP `502` down bucket.
@@ -100,11 +100,14 @@ Local implementation verification completed across v0.2.2, v0.2.3, and v0.2.4:
 - Initial v0.2.3 post-release API checks returned HTTP `200` for both public JSON endpoints before the manual post-static restoration test.
 - Post-static verification before v0.2.4 found `Status Events CI` passed while `Status Timeline CI` failed during concurrent `gh-pages` publish, motivating the shared API publish concurrency fix.
 - Workflow source checks confirm `Status Events CI` and `Status Timeline CI` include successful `Static Site CI` as a `workflow_run` trigger, retain `keep_files: true` publication, and share the NodeClaw API publish concurrency group.
+- Release commit `6a1ad1f` passed `Setup CI`, manually triggered `Static Site CI`, post-static `Status Events CI`, post-static `Status Timeline CI`, and final GitHub Pages deployment.
+- Deployed `api/status-events.json`, `api/status-timeline/index.json`, and all advertised timeline day JSON returned HTTP `200`; deployed timeline JSON retained exactly 24 segments per component and passed bounded public-safety field checks.
+- Headless rendered-page verification confirmed the public `Uptime Timeline` section renders outside Upptime `Active Incidents`, with 24 segment elements for each visible component row.
 - Generated Upptime workflow bodies remain out of scope and are not edited by this patch.
 
-Governance-sync verification for this patch checks metadata, design/docs/changelog/TODO/phase/patch alignment, local-implementation wording, fixed-bucket timeline wording, API restoration wording, shared publish concurrency wording, and explicit release-verification-pending boundaries.
+Governance-sync verification for this patch checks metadata, design/docs/changelog/TODO/phase/patch alignment, release-complete wording, fixed-bucket timeline wording, API restoration wording, shared publish concurrency wording, and explicit public-verification evidence boundaries.
 
-Release closeout still requires post-deployment rendered-page verification that Uptime %, fixed public timeline bars, and daily incident history appear separately from Upptime `Active Incidents`, deployed API JSON public-safety audit for both Status Events and timeline contracts, and post-fix `Status Events CI` / `Status Timeline CI` confirmation after `Static Site CI`.
+Release closeout is complete for the checked v0.2.4 scope: post-deployment rendered-page verification confirmed Uptime %, fixed public timeline bars, and daily incident history appear separately from Upptime `Active Incidents`; deployed API JSON public-safety audits passed for both Status Events and timeline contracts; and post-fix `Status Events CI` / `Status Timeline CI` passed after `Static Site CI`.
 
 ## Rollback Approach
 
