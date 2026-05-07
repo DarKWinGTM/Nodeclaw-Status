@@ -28,6 +28,8 @@
 - Refined the v0.2.1 Status Timeline target to include Uptime % display beside timeline rows with observed-uptime wording and sample-count context.
 - Implemented the v0.2.2 local Status Timeline compiler, fixture, generated JSON, renderer, and workflow with release verification pending.
 - Hardened v0.2.3 NodeClaw-owned API workflows so Status Events and Status Timeline JSON republish after Upptime `Static Site CI` replaces the public `gh-pages` output.
+- Implemented the v0.2.4 local fixed 24-hour timeline buckets so component timelines render exactly 24 hourly bars instead of shrinking to one bar per observed sample.
+- Serialized the v0.2.4 NodeClaw-owned API publish workflows through one shared concurrency group to avoid post-`Static Site CI` `gh-pages` publish races.
 
 ---
 
@@ -35,9 +37,9 @@
 
 ### Status Timeline and Incident History
 
-- [ ] Verify the rendered public status page shows Uptime %, 24-hour timeline history, and daily archive outside Upptime `Active Incidents` after commit/push and GitHub Pages deployment.
-- [ ] Audit deployed status API JSON for public-safe fields only: Status Events fields plus timeline component name/slug, uptime percentage, sample counts, observed state, timestamps, status code, response-time summary, and public incident summary.
-- [ ] Confirm the first post-release `Status Events CI` and `Status Timeline CI` runs restore `api/status-events.json` and `api/status-timeline/*` after `Static Site CI`, with timeline generation using full Git history through `fetch-depth: 0`.
+- [ ] Verify the rendered public status page shows Uptime %, fixed 24-hour timeline bars with the rightmost bar ending at the current window end, and daily archive outside Upptime `Active Incidents` after commit/push and GitHub Pages deployment.
+- [ ] Audit deployed status API JSON for public-safe fields only: Status Events fields plus timeline component name/slug, uptime percentage, sample counts, fixed hourly bucket state, timestamps, status code, response-time summary, and public incident summary.
+- [ ] Confirm the post-release `Status Events CI` and `Status Timeline CI` runs restore `api/status-events.json` and `api/status-timeline/*` after `Static Site CI`, with shared publish concurrency preventing `gh-pages` push races and timeline generation using full Git history through `fetch-depth: 0`.
 
 ---
 
@@ -54,3 +56,4 @@
 | 2026-05-08 | Refined the Status Timeline target to v0.2.1 with Uptime % display, observed uptime wording, sample counts, and pending implementation verification tasks. |
 | 2026-05-08 | Implemented the v0.2.2 local Status Timeline compiler, fixture, static JSON, custom renderer, and workflow; public release verification remains pending. |
 | 2026-05-08 | Hardened the v0.2.3 API publish path so NodeClaw Status Events and Timeline JSON republish after Upptime `Static Site CI` replaces `gh-pages` output. |
+| 2026-05-08 | Implemented the v0.2.4 fixed 24-hour timeline bucket renderer contract and serialized NodeClaw API publishes to avoid post-static `gh-pages` races. |

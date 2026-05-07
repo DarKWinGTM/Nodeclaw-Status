@@ -1,8 +1,30 @@
 # NodeClaw Status Events Changelog
 
 > **Parent Document:** [../design/status-events.design.md](../design/status-events.design.md)
-> **Current Version:** 0.2.3
+> **Current Version:** 0.2.4
 > **Session:** 519ee145-4708-49b8-9b9e-e57227b2ade7
+
+## 0.2.4 — 2026-05-08
+
+### Changed
+
+- Changed the Status Timeline compiler to emit exactly 24 fixed hourly `segments` for each component in the current 24-hour view and daily archive files, so sparse check history still renders as a consistent bar timeline instead of one bar per observed sample.
+- Updated the timeline renderer tooltip text to show bucket ranges, sample counts, and HTTP status codes while keeping rendered content on DOM text nodes.
+- Updated NodeClaw-owned Status Events and Status Timeline workflow concurrency so post-`Static Site CI` API publishes serialize through one shared group instead of racing on `gh-pages` pushes.
+
+### Verification
+
+- `node --check scripts/generate-status-timeline.mjs` passed.
+- Fixture dry-run verified 24 timeline segments per component and preserved an HTTP `502` down bucket.
+- Generated `api/status-timeline/index.json` and all checked day files have 24 segments per component and no forbidden public-safety field names in the checked scope.
+- Extracted `.upptimerc.yml` inline renderer script passed `node --check`.
+
+### Notes
+
+- This version does not yet claim the fixed 24-hour bars are visible on GitHub Pages or that both post-static API restoration workflows pass after the new concurrency setting; those remain release verification gates after commit/push/deploy.
+- Pre-fix post-static verification found `Status Events CI` passed while `Status Timeline CI` failed during `gh-pages` publish because the two API workflows raced each other.
+
+---
 
 ## 0.2.3 — 2026-05-08
 

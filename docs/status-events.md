@@ -83,7 +83,7 @@ The first public paragraph after metadata becomes the public summary.
 
 ## Public safety
 
-Only public-safe details should be written in the public summary section. Do not include internal supplier identity, secrets, private routing details, raw request payloads, raw provider error HTML, raw headers, or operator-only investigation notes. Timeline data should publish public component names/slugs, uptime percentage, sample counts, observed state, status code, response-time summary, and observed window only.
+Only public-safe details should be written in the public summary section. Do not include internal supplier identity, secrets, private routing details, raw request payloads, raw provider error HTML, raw headers, or operator-only investigation notes. Timeline data should publish public component names/slugs, uptime percentage, sample counts, fixed hourly bucket state, status code, response-time summary, and observed window only.
 
 ## Status page behavior
 
@@ -104,9 +104,9 @@ It renders separate public sections before the Upptime status summary:
 - Operational Reports
 - Manual Incident Reports
 
-Phase 005 has local source and fixture verification for timeline generation/rendering. Until the changes are committed, pushed, and verified after GitHub Pages deployment, the live public page should still be treated as release-verification pending. Both Status Events and timeline sections are intentionally separate from Upptime `Active Incidents`.
+Phase 005 has local source and fixture verification for timeline generation/rendering. Until the fixed-bucket timeline and serialized API publish changes are committed, pushed, and verified after GitHub Pages deployment, the live public page should still be treated as release-verification pending. Both Status Events and timeline sections are intentionally separate from Upptime `Active Incidents`.
 
-The public JSON files must remain available on `gh-pages` after Upptime rebuilds the static site. NodeClaw-owned Status Events and Status Timeline workflows republish their API JSON after successful `Static Site CI` runs because the generated Upptime site deploy can replace the public page output without preserving custom `api/` files.
+The public JSON files must remain available on `gh-pages` after Upptime rebuilds the static site. NodeClaw-owned Status Events and Status Timeline workflows republish their API JSON after successful `Static Site CI` runs because the generated Upptime site deploy can replace the public page output without preserving custom `api/` files. The two API publish workflows share one concurrency group so their `gh-pages` publishes serialize instead of racing each other.
 
 ## Status Timeline and Incident History
 
@@ -122,7 +122,9 @@ Upptime check/history data
 
 Target behavior:
 
-- The default timeline shows uptime % and the latest 24 hours for each monitored public component.
+- The default timeline shows uptime % and exactly 24 hourly bars for each monitored public component.
+- The rightmost bar represents the current 24-hour window end, and bars to the left walk back through the previous 24 hours.
+- Empty hours still render as `unknown`/no-sample bars so the timeline keeps a consistent shape instead of shrinking to only observed samples.
 - Users can select a day such as `2026-05-06` to inspect that day's observed uptime % and incidents.
 - Consecutive down/degraded samples for one component are grouped into one incident window until a later up sample closes it.
 - HTTP `502` samples are down samples when the returned status code is `502`.

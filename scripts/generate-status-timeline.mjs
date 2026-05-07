@@ -7,6 +7,7 @@ import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
 const execFileAsync = promisify(execFile);
+const TIMELINE_BUCKET_COUNT = 24;
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(scriptDir, '..');
 const args = parseArgs(process.argv.slice(2));
@@ -322,7 +323,7 @@ function buildComponentWindow(component, windowStart, windowEnd, windowLabel, up
       unknownSampleCount: counts.unknownSampleCount,
       incidentCount: incidents.length,
     },
-    segments: buildSegments(samples),
+    segments: buildSegments(samples, windowStart, windowEnd),
     incidents,
   };
 }
@@ -344,20 +345,50 @@ function observedUptimePercent(counts) {
   return roundPercent((counts.upSampleCount / known) * 100);
 }
 
-function buildSegments(samples) {
-  return samples.map((sample, index) => {
-    const next = samples[index + 1];
-    const endsAt = next?.timestamp ?? sample.timestamp;
+function buildSegments(samples, windowStart, windowEnd) {
+  const startTime = windowStart.getTime();
+  const endTime = windowEnd.getTime();
+  const bucketMs = Math.max(1, Math.round((endTime - startTime) / TIMELINE_BUCKET_COUNT));
+
+  return Array.from({ length: TIMELINE_BUCKET_COUNT }, (_, index) => {
+    const startsAt = new Date(startTime + bucketMs * index);
+    const endsAt = index === TIMELINE_BUCKET_COUNT - 1
+      ? new Date(endTime)
+      : new Date(startTime + bucketMs * (index + 1));
+    const bucketSamples = samples.filter((sample) => {
+      const time = Date.parse(sample.timestamp);
+      return time >= startsAt.getTime() && (index === TIMELINE_BUCKET_COUNT - 1 ? time <= endsAt.getTime() : time < endsAt.getTime());
+    });
+    const state = bucketState(bucketSamples);
+    const representative = representativeSample(bucketSamples, state);
+    const statusCodes = [...new Set(bucketSamples.map((sample) => sample.statusCode).filter((value) => value !== null))];
+
     return {
-      state: sample.state,
-      startsAt: sample.timestamp,
-      endsAt,
-      observedDurationSeconds: Math.max(0, Math.round((Date.parse(endsAt) - Date.parse(sample.timestamp)) / 1000)),
-      statusCode: sample.statusCode,
-      responseTimeMs: sample.responseTimeMs,
-      source: sample.source,
+      state,
+      startsAt: startsAt.toISOString(),
+      endsAt: endsAt.toISOString(),
+      observedDurationSeconds: Math.max(0, Math.round((endsAt.getTime() - startsAt.getTime()) / 1000)),
+      sampleCount: bucketSamples.length,
+      statusCode: representative?.statusCode ?? null,
+      statusCodes,
+      responseTimeMs: representative?.responseTimeMs ?? null,
+      source: representative?.source ?? null,
+      bucketIndex: index,
+      bucketCount: TIMELINE_BUCKET_COUNT,
     };
   });
+}
+
+function bucketState(samples) {
+  if (samples.some((sample) => sample.state === 'down')) return 'down';
+  if (samples.some((sample) => sample.state === 'degraded')) return 'degraded';
+  if (samples.some((sample) => sample.state === 'up')) return 'up';
+  return 'unknown';
+}
+
+function representativeSample(samples, state) {
+  const matching = samples.filter((sample) => sample.state === state);
+  return matching.at(-1) ?? samples.at(-1) ?? null;
 }
 
 function buildIncidents(samples) {

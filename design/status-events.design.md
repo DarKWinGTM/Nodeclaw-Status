@@ -1,6 +1,6 @@
 # NodeClaw Status Events Design
 
-> **Current Version:** 0.2.3
+> **Current Version:** 0.2.4
 > **Status:** Active local implementation; release verification pending
 > **Session:** 519ee145-4708-49b8-9b9e-e57227b2ade7
 > **Full history:** [../changelog/status-events.changelog.md](../changelog/status-events.changelog.md)
@@ -71,8 +71,8 @@ The Status Timeline layer turns Upptime's checked history into a public, compone
 
 | Window | Public behavior |
 |---|---|
-| Current 24 hours | Default component timeline showing 24-hour uptime %, observed `up`, `down`, `degraded`, and `unknown/no sample` intervals. |
-| Daily archive | Date-selectable `YYYY-MM-DD` views with observed daily uptime % so users can inspect a specific past day. |
+| Current 24 hours | Default component timeline showing 24-hour uptime % and exactly 24 fixed hourly bars; the rightmost bar ends at the current window end and bars to the left cover the previous 24 hours. |
+| Daily archive | Date-selectable `YYYY-MM-DD` views with 24 fixed hourly bars, observed daily uptime %, and grouped incidents so users can inspect a specific past day. |
 | Incident detail | Grouped down/degraded windows with first observed failure, last observed failure, recovery sample when present, status code, response-time samples, affected component, observed duration, and incident impact on observed uptime %. |
 
 ### Incident grouping rules
@@ -90,6 +90,7 @@ The Status Timeline layer turns Upptime's checked history into a public, compone
 - `observedUptimePercent` is computed from timeline samples/windows and must be labelled as observed uptime when exact second-level availability cannot be proven.
 - Daily archive rows should include sample counts such as `sampleCount`, `upSampleCount`, `downSampleCount`, `degradedSampleCount`, and `unknownSampleCount` so the percentage has context.
 - Rounded `100%` values must not hide incident count or down/degraded timeline segments.
+- Timeline `segments` are fixed hourly display buckets, not one DOM bar per observed sample; sparse windows still render unknown/no-sample bars so the page keeps a consistent 24-hour visual shape.
 
 ## State Model
 
@@ -260,7 +261,21 @@ The issue title becomes the event title. The first public paragraph after metada
         "unknownSampleCount": 0,
         "incidentCount": 1
       },
-      "segments": [],
+      "segments": [
+        {
+          "state": "unknown",
+          "startsAt": "2026-05-07T00:00:00.000Z",
+          "endsAt": "2026-05-07T01:00:00.000Z",
+          "observedDurationSeconds": 3600,
+          "sampleCount": 0,
+          "statusCode": null,
+          "statusCodes": [],
+          "responseTimeMs": null,
+          "source": null,
+          "bucketIndex": 0,
+          "bucketCount": 24
+        }
+      ],
       "incidents": []
     }
   ]
@@ -288,12 +303,16 @@ The issue title becomes the event title. The first public paragraph after metada
       "segments": [
         {
           "state": "down",
-          "startsAt": "2026-05-06T23:38:32.724Z",
-          "endsAt": "2026-05-06T23:43:32.724Z",
-          "observedDurationSeconds": 300,
+          "startsAt": "2026-05-06T23:00:00.000Z",
+          "endsAt": "2026-05-07T00:00:00.000Z",
+          "observedDurationSeconds": 3600,
+          "sampleCount": 1,
           "statusCode": 502,
+          "statusCodes": [502],
           "responseTimeMs": 714,
-          "source": "git-check"
+          "source": "git-check",
+          "bucketIndex": 23,
+          "bucketCount": 24
         }
       ],
       "incidents": [
@@ -324,6 +343,7 @@ The status page renderer is injected through `.upptimerc.yml`:
 - The event renderer fetches `/Nodeclaw-Status/api/status-events.json` from the status page base URL.
 - The timeline renderer fetches `/Nodeclaw-Status/api/status-timeline/index.json` and the selected `api/status-timeline/days/YYYY-MM-DD.json` day file.
 - The renderer shows uptime % next to each component timeline row, using `24h uptime` for the default window and `observed uptime` for daily archive rows when sample-derived.
+- The renderer displays the compiler-provided 24 fixed hourly `segments` as pill bars, with the rightmost bar representing the current 24-hour window end in the default view.
 - The renderer inserts event, uptime, and timeline sections after the main page header and before Upptime live incident/status sections.
 - User-provided event, uptime, and timeline fields are assigned through `textContent`, not `innerHTML`.
 
@@ -368,7 +388,7 @@ Past Incidents
 
 Existing Upptime workflow files warn that direct edits may be overwritten by template updates. NodeClaw custom status-events and status-timeline workflows and scripts must be additive and clearly owned by NodeClaw rather than editing generated Upptime workflow bodies.
 
-Generated Upptime `Static Site CI` may republish the public `gh-pages` site without preserving custom `api/` files. NodeClaw-owned API workflows therefore republish `api/status-events.json` and `api/status-timeline/*` after successful `Static Site CI` runs, with `keep_files: true`, so public JSON remains available without editing generated Upptime workflow bodies.
+Generated Upptime `Static Site CI` may republish the public `gh-pages` site without preserving custom `api/` files. NodeClaw-owned API workflows therefore republish `api/status-events.json` and `api/status-timeline/*` after successful `Static Site CI` runs, with `keep_files: true`, so public JSON remains available without editing generated Upptime workflow bodies. The NodeClaw-owned API workflows share one API publish concurrency group so their `gh-pages` publishes serialize instead of racing each other after `Static Site CI`.
 
 ## Verification
 
@@ -380,7 +400,7 @@ Required checks:
 - Status event compiler generates valid JSON from real GitHub issues.
 - Timeline compiler generates valid index/day JSON from fixture Upptime/Git history, including an HTTP 502 sample.
 - Public renderer and whole-page theme markers appear on the generated status page.
-- Status Timeline shows current 24-hour uptime %, current 24-hour history, and a date-selectable daily archive with observed uptime %.
+- Status Timeline shows current 24-hour uptime %, exactly 24 fixed hourly bars for the current window, and a date-selectable daily archive with observed uptime %.
 - Issue-driven announcement does not appear under Upptime `Active Incidents`.
 - `api/status-events.json` and timeline JSON contain only public-safe fields.
 - Timeline verification distinguishes observed check windows and observed uptime % from exact outage duration or second-level availability.

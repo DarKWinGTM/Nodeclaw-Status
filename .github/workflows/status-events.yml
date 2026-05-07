@@ -20,7 +20,7 @@ permissions:
   issues: read
 
 concurrency:
-  group: status-events-${{ github.ref }}
+  group: nodeclaw-status-api-publish-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:

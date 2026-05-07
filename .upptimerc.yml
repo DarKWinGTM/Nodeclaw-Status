@@ -673,6 +673,13 @@ status-website:
           return new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(date);
         }
 
+        function formatDateRange(start, end) {
+          var startText = formatDate(start);
+          var endText = formatDate(end);
+          if (startText && endText) return startText + ' – ' + endText;
+          return startText || endText || '';
+        }
+
         function renderBadge(text, modifier) {
           return textNode('span', 'nodeclaw-status-events__badge' + (modifier ? ' nodeclaw-status-events__badge--' + modifier : ''), text);
         }
@@ -752,9 +759,18 @@ status-website:
             return bar;
           }
           segments.forEach(function (segment) {
-            var state = segment.state || 'unknown';
+            var allowedStates = ['up', 'down', 'degraded', 'unknown'];
+            var state = allowedStates.indexOf(segment.state) === -1 ? 'unknown' : segment.state;
             var node = textNode('span', 'nodeclaw-status-timeline__segment nodeclaw-status-timeline__segment--' + state);
-            node.title = state + (segment.statusCode ? ' HTTP ' + segment.statusCode : '') + ' · ' + formatDate(segment.startsAt);
+            var statusCodes = Array.isArray(segment.statusCodes) && segment.statusCodes.length
+              ? segment.statusCodes
+              : (segment.statusCode !== null && segment.statusCode !== undefined ? [segment.statusCode] : []);
+            var codeText = statusCodes.length ? ' HTTP ' + statusCodes.join(', ') : '';
+            var sampleText = typeof segment.sampleCount === 'number'
+              ? ' · ' + segment.sampleCount + (segment.sampleCount === 1 ? ' sample' : ' samples')
+              : '';
+            var rangeText = formatDateRange(segment.startsAt, segment.endsAt);
+            node.title = state + codeText + sampleText + (rangeText ? ' · ' + rangeText : '');
             node.setAttribute('aria-label', node.title);
             bar.appendChild(node);
           });
