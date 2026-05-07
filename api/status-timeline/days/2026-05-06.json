@@ -6,37 +6,15 @@
     "repo": "Nodeclaw-Status",
     "type": "upptime-git-history"
   },
-  "currentWindow": {
-    "label": "latest 24 hours",
-    "startsAt": "2026-05-06T20:00:22.601Z",
-    "endsAt": "2026-05-07T20:00:22.601Z"
-  },
-  "availableDays": [
-    {
-      "date": "2026-05-07",
-      "path": "api/status-timeline/days/2026-05-07.json"
-    },
-    {
-      "date": "2026-05-06",
-      "path": "api/status-timeline/days/2026-05-06.json"
-    },
-    {
-      "date": "2026-05-05",
-      "path": "api/status-timeline/days/2026-05-05.json"
-    },
-    {
-      "date": "2026-05-04",
-      "path": "api/status-timeline/days/2026-05-04.json"
-    }
-  ],
+  "date": "2026-05-06",
   "components": [
     {
       "slug": "node-claw-app-health-app-nodenetwork-ovh-health",
       "name": "NodeClaw App Health — app.nodenetwork.ovh/health",
       "publicUrl": "https://app.nodenetwork.ovh/health",
       "uptime": {
-        "window": "24h",
-        "upptimeUptimePercent": 100,
+        "window": "day",
+        "upptimeUptimePercent": null,
         "observedUptimePercent": 100,
         "sampleCount": 1,
         "upSampleCount": 1,
@@ -63,17 +41,35 @@
       "name": "NodeClaw Runtime Health — runtime.nodenetwork.ovh/health",
       "publicUrl": "https://runtime.nodenetwork.ovh/health",
       "uptime": {
-        "window": "24h",
-        "upptimeUptimePercent": 100,
-        "observedUptimePercent": 33.33,
-        "sampleCount": 3,
+        "window": "day",
+        "upptimeUptimePercent": null,
+        "observedUptimePercent": 25,
+        "sampleCount": 4,
         "upSampleCount": 1,
-        "downSampleCount": 2,
+        "downSampleCount": 3,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
-        "incidentCount": 1
+        "incidentCount": 2
       },
       "segments": [
+        {
+          "state": "down",
+          "startsAt": "2026-05-06T14:43:03.110Z",
+          "endsAt": "2026-05-06T16:21:20.627Z",
+          "observedDurationSeconds": 5898,
+          "statusCode": 502,
+          "responseTimeMs": 802,
+          "source": "git-check"
+        },
+        {
+          "state": "up",
+          "startsAt": "2026-05-06T16:21:20.627Z",
+          "endsAt": "2026-05-06T22:12:14.413Z",
+          "observedDurationSeconds": 21054,
+          "statusCode": 200,
+          "responseTimeMs": 749,
+          "source": "git-check"
+        },
         {
           "state": "down",
           "startsAt": "2026-05-06T22:12:14.413Z",
@@ -86,30 +82,35 @@
         {
           "state": "down",
           "startsAt": "2026-05-06T23:38:32.724Z",
-          "endsAt": "2026-05-07T04:05:21.864Z",
-          "observedDurationSeconds": 16009,
+          "endsAt": "2026-05-06T23:38:32.724Z",
+          "observedDurationSeconds": 0,
           "statusCode": 502,
           "responseTimeMs": 714,
-          "source": "git-check"
-        },
-        {
-          "state": "up",
-          "startsAt": "2026-05-07T04:05:21.864Z",
-          "endsAt": "2026-05-07T04:05:21.864Z",
-          "observedDurationSeconds": 0,
-          "statusCode": 200,
-          "responseTimeMs": 906,
           "source": "git-check"
         }
       ],
       "incidents": [
         {
           "state": "down",
+          "startsAt": "2026-05-06T14:43:03.110Z",
+          "lastObservedAt": "2026-05-06T14:43:03.110Z",
+          "endsAt": "2026-05-06T16:21:20.627Z",
+          "recoveryAt": "2026-05-06T16:21:20.627Z",
+          "observedDurationSeconds": 5898,
+          "sampleCount": 1,
+          "statusCodes": [
+            502
+          ],
+          "maxResponseTimeMs": 802,
+          "summary": "Down samples observed with HTTP 502. Duration is an observed window from sparse checks."
+        },
+        {
+          "state": "down",
           "startsAt": "2026-05-06T22:12:14.413Z",
           "lastObservedAt": "2026-05-06T23:38:32.724Z",
-          "endsAt": "2026-05-07T04:05:21.864Z",
-          "recoveryAt": "2026-05-07T04:05:21.864Z",
-          "observedDurationSeconds": 21187,
+          "endsAt": "2026-05-06T23:38:32.724Z",
+          "recoveryAt": null,
+          "observedDurationSeconds": 5178,
           "sampleCount": 2,
           "statusCodes": [
             502
@@ -124,8 +125,8 @@
       "name": "NodeNetwork Website — nodenetwork.ovh",
       "publicUrl": "https://nodenetwork.ovh",
       "uptime": {
-        "window": "24h",
-        "upptimeUptimePercent": 100,
+        "window": "day",
+        "upptimeUptimePercent": null,
         "observedUptimePercent": 100,
         "sampleCount": 1,
         "upSampleCount": 1,

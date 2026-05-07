@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-07T19:11:38.428Z",
+  "generatedAt": "2026-05-07T20:00:22.601Z",
   "source": {
     "owner": "DarKWinGTM",
     "repo": "Nodeclaw-Status",
@@ -16,8 +16,8 @@
         "window": "day",
         "upptimeUptimePercent": null,
         "observedUptimePercent": 100,
-        "sampleCount": 6,
-        "upSampleCount": 6,
+        "sampleCount": 7,
+        "upSampleCount": 7,
         "downSampleCount": 0,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
@@ -72,10 +72,56 @@
         {
           "state": "up",
           "startsAt": "2026-05-04T16:57:07.702Z",
-          "endsAt": "2026-05-04T16:57:07.702Z",
-          "observedDurationSeconds": 0,
+          "endsAt": "2026-05-04T23:40:47.059Z",
+          "observedDurationSeconds": 24219,
           "statusCode": 200,
           "responseTimeMs": 933,
+          "source": "git-check"
+        },
+        {
+          "state": "up",
+          "startsAt": "2026-05-04T23:40:47.059Z",
+          "endsAt": "2026-05-04T23:40:47.059Z",
+          "observedDurationSeconds": 0,
+          "statusCode": 200,
+          "responseTimeMs": 781,
+          "source": "git-check"
+        }
+      ],
+      "incidents": []
+    },
+    {
+      "slug": "node-claw-runtime-health-runtime-nodenetwork-ovh-health",
+      "name": "NodeClaw Runtime Health — runtime.nodenetwork.ovh/health",
+      "publicUrl": "https://runtime.nodenetwork.ovh/health",
+      "uptime": {
+        "window": "day",
+        "upptimeUptimePercent": null,
+        "observedUptimePercent": 100,
+        "sampleCount": 2,
+        "upSampleCount": 2,
+        "downSampleCount": 0,
+        "degradedSampleCount": 0,
+        "unknownSampleCount": 0,
+        "incidentCount": 0
+      },
+      "segments": [
+        {
+          "state": "up",
+          "startsAt": "2026-05-04T21:29:15.427Z",
+          "endsAt": "2026-05-04T23:40:48.122Z",
+          "observedDurationSeconds": 7893,
+          "statusCode": 200,
+          "responseTimeMs": 3102,
+          "source": "git-check"
+        },
+        {
+          "state": "up",
+          "startsAt": "2026-05-04T23:40:48.122Z",
+          "endsAt": "2026-05-04T23:40:48.122Z",
+          "observedDurationSeconds": 0,
+          "statusCode": 200,
+          "responseTimeMs": 859,
           "source": "git-check"
         }
       ],
@@ -89,8 +135,8 @@
         "window": "day",
         "upptimeUptimePercent": null,
         "observedUptimePercent": 100,
-        "sampleCount": 7,
-        "upSampleCount": 7,
+        "sampleCount": 8,
+        "upSampleCount": 8,
         "downSampleCount": 0,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
@@ -154,31 +200,22 @@
         {
           "state": "up",
           "startsAt": "2026-05-04T16:57:06.577Z",
-          "endsAt": "2026-05-04T16:57:06.577Z",
-          "observedDurationSeconds": 0,
+          "endsAt": "2026-05-04T23:40:46.068Z",
+          "observedDurationSeconds": 24219,
           "statusCode": 200,
           "responseTimeMs": 860,
           "source": "git-check"
+        },
+        {
+          "state": "up",
+          "startsAt": "2026-05-04T23:40:46.068Z",
+          "endsAt": "2026-05-04T23:40:46.068Z",
+          "observedDurationSeconds": 0,
+          "statusCode": 200,
+          "responseTimeMs": 769,
+          "source": "git-check"
         }
       ],
-      "incidents": []
-    },
-    {
-      "slug": "nodeclaw-runtime-health-runtime-nodenetwork-ovh-health",
-      "name": "NodeClaw Runtime Health — runtime.nodenetwork.ovh/health",
-      "publicUrl": "https://runtime.nodenetwork.ovh/health",
-      "uptime": {
-        "window": "day",
-        "upptimeUptimePercent": null,
-        "observedUptimePercent": null,
-        "sampleCount": 0,
-        "upSampleCount": 0,
-        "downSampleCount": 0,
-        "degradedSampleCount": 0,
-        "unknownSampleCount": 0,
-        "incidentCount": 0
-      },
-      "segments": [],
       "incidents": []
     }
   ]
