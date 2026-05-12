@@ -5,18 +5,19 @@
     "icon": "https://icons.duckduckgo.com/ip3/nodenetwork.ovh.ico",
     "slug": "node-network-website-nodenetwork-ovh",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 770,
-    "timeDay": 445,
-    "timeWeek": 770,
-    "timeMonth": 770,
-    "timeYear": 770,
+    "uptime": "91.39%",
+    "uptimeDay": "34.05%",
+    "uptimeWeek": "90.58%",
+    "uptimeMonth": "91.39%",
+    "uptimeYear": "91.39%",
+    "time": 778,
+    "timeDay": 515,
+    "timeWeek": 716,
+    "timeMonth": 778,
+    "timeYear": 778,
     "dailyMinutesDown": {
-      "2026-05-11": 0
+      "2026-05-12": 229,
+      "2026-05-11": 721
     }
   },
   {
@@ -25,18 +26,19 @@
     "icon": "https://icons.duckduckgo.com/ip3/app.nodenetwork.ovh.ico",
     "slug": "node-claw-app-health-app-nodenetwork-ovh-health",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 901,
-    "timeDay": 399,
-    "timeWeek": 901,
-    "timeMonth": 901,
-    "timeYear": 901,
+    "uptime": "91.33%",
+    "uptimeDay": "34.05%",
+    "uptimeWeek": "90.58%",
+    "uptimeMonth": "91.33%",
+    "uptimeYear": "91.33%",
+    "time": 898,
+    "timeDay": 487,
+    "timeWeek": 723,
+    "timeMonth": 898,
+    "timeYear": 898,
     "dailyMinutesDown": {
-      "2026-05-11": 0
+      "2026-05-12": 229,
+      "2026-05-11": 721
     }
   },
   {
@@ -50,11 +52,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 930,
-    "timeDay": 678,
-    "timeWeek": 930,
-    "timeMonth": 930,
-    "timeYear": 930,
+    "time": 929,
+    "timeDay": 912,
+    "timeWeek": 842,
+    "timeMonth": 929,
+    "timeYear": 929,
     "dailyMinutesDown": {}
   }
 ]
