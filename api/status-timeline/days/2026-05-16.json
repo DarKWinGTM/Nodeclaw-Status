@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-16T23:32:34.398Z",
+  "generatedAt": "2026-05-17T01:29:54.936Z",
   "source": {
     "owner": "DarKWinGTM",
     "repo": "Nodeclaw-Status",
@@ -15,13 +15,13 @@
       "uptime": {
         "window": "day",
         "upptimeUptimePercent": null,
-        "observedUptimePercent": null,
-        "sampleCount": 0,
+        "observedUptimePercent": 0,
+        "sampleCount": 1,
         "upSampleCount": 0,
-        "downSampleCount": 0,
+        "downSampleCount": 1,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
-        "incidentCount": 0
+        "incidentCount": 1
       },
       "segments": [
         {
@@ -324,20 +324,37 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
+          "state": "down",
           "startsAt": "2026-05-16T23:00:00.000Z",
           "endsAt": "2026-05-16T23:59:59.999Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 502,
+          "statusCodes": [
+            502
+          ],
+          "responseTimeMs": 845,
+          "source": "git-check",
           "bucketIndex": 23,
           "bucketCount": 24
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "state": "down",
+          "startsAt": "2026-05-16T23:38:16.903Z",
+          "lastObservedAt": "2026-05-16T23:38:16.903Z",
+          "endsAt": "2026-05-16T23:38:16.903Z",
+          "recoveryAt": null,
+          "observedDurationSeconds": 0,
+          "sampleCount": 1,
+          "statusCodes": [
+            502
+          ],
+          "maxResponseTimeMs": 845,
+          "summary": "Down samples observed with HTTP 502. Duration is an observed window from sparse checks."
+        }
+      ]
     },
     {
       "slug": "node-claw-runtime-health-runtime-nodenetwork-ovh-health",
@@ -346,9 +363,9 @@
       "uptime": {
         "window": "day",
         "upptimeUptimePercent": null,
-        "observedUptimePercent": 50,
-        "sampleCount": 2,
-        "upSampleCount": 1,
+        "observedUptimePercent": 66.67,
+        "sampleCount": 3,
+        "upSampleCount": 2,
         "downSampleCount": 1,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
@@ -659,15 +676,17 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
+          "state": "up",
           "startsAt": "2026-05-16T23:00:00.000Z",
           "endsAt": "2026-05-16T23:59:59.999Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 200,
+          "statusCodes": [
+            200
+          ],
+          "responseTimeMs": 831,
+          "source": "git-check",
           "bucketIndex": 23,
           "bucketCount": 24
         }
@@ -696,13 +715,13 @@
       "uptime": {
         "window": "day",
         "upptimeUptimePercent": null,
-        "observedUptimePercent": null,
-        "sampleCount": 0,
+        "observedUptimePercent": 0,
+        "sampleCount": 1,
         "upSampleCount": 0,
-        "downSampleCount": 0,
+        "downSampleCount": 1,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
-        "incidentCount": 0
+        "incidentCount": 1
       },
       "segments": [
         {
@@ -1005,20 +1024,37 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
+          "state": "down",
           "startsAt": "2026-05-16T23:00:00.000Z",
           "endsAt": "2026-05-16T23:59:59.999Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 502,
+          "statusCodes": [
+            502
+          ],
+          "responseTimeMs": 775,
+          "source": "git-check",
           "bucketIndex": 23,
           "bucketCount": 24
         }
       ],
-      "incidents": []
+      "incidents": [
+        {
+          "state": "down",
+          "startsAt": "2026-05-16T23:38:15.009Z",
+          "lastObservedAt": "2026-05-16T23:38:15.009Z",
+          "endsAt": "2026-05-16T23:38:15.009Z",
+          "recoveryAt": null,
+          "observedDurationSeconds": 0,
+          "sampleCount": 1,
+          "statusCodes": [
+            502
+          ],
+          "maxResponseTimeMs": 775,
+          "summary": "Down samples observed with HTTP 502. Duration is an observed window from sparse checks."
+        }
+      ]
     }
   ]
 }
