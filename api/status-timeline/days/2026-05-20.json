@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-20T19:51:01.651Z",
+  "generatedAt": "2026-05-20T21:48:43.587Z",
   "source": {
     "owner": "DarKWinGTM",
     "repo": "Nodeclaw-Status",
@@ -346,13 +346,13 @@
       "uptime": {
         "window": "day",
         "upptimeUptimePercent": null,
-        "observedUptimePercent": 50,
-        "sampleCount": 2,
+        "observedUptimePercent": 33.33,
+        "sampleCount": 3,
         "upSampleCount": 1,
-        "downSampleCount": 1,
+        "downSampleCount": 2,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
-        "incidentCount": 1
+        "incidentCount": 2
       },
       "segments": [
         {
@@ -633,15 +633,17 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
+          "state": "down",
           "startsAt": "2026-05-20T21:00:00.000Z",
           "endsAt": "2026-05-20T22:00:00.000Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 502,
+          "statusCodes": [
+            502
+          ],
+          "responseTimeMs": 913,
+          "source": "git-check",
           "bucketIndex": 21,
           "bucketCount": 24
         },
@@ -685,6 +687,20 @@
             502
           ],
           "maxResponseTimeMs": 753,
+          "summary": "Down samples observed with HTTP 502. Duration is an observed window from sparse checks."
+        },
+        {
+          "state": "down",
+          "startsAt": "2026-05-20T21:48:22.339Z",
+          "lastObservedAt": "2026-05-20T21:48:22.339Z",
+          "endsAt": "2026-05-20T21:48:22.339Z",
+          "recoveryAt": null,
+          "observedDurationSeconds": 0,
+          "sampleCount": 1,
+          "statusCodes": [
+            502
+          ],
+          "maxResponseTimeMs": 913,
           "summary": "Down samples observed with HTTP 502. Duration is an observed window from sparse checks."
         }
       ]
