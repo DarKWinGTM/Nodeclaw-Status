@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-19T23:00:17.061Z",
+  "generatedAt": "2026-05-20T00:16:18.585Z",
   "source": {
     "owner": "DarKWinGTM",
     "repo": "Nodeclaw-Status",
@@ -16,8 +16,8 @@
         "window": "day",
         "upptimeUptimePercent": null,
         "observedUptimePercent": 100,
-        "sampleCount": 1,
-        "upSampleCount": 1,
+        "sampleCount": 2,
+        "upSampleCount": 2,
         "downSampleCount": 0,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
@@ -326,15 +326,17 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
+          "state": "up",
           "startsAt": "2026-05-19T23:00:00.000Z",
           "endsAt": "2026-05-19T23:59:59.999Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 200,
+          "statusCodes": [
+            200
+          ],
+          "responseTimeMs": 747,
+          "source": "git-check",
           "bucketIndex": 23,
           "bucketCount": 24
         }
@@ -348,9 +350,9 @@
       "uptime": {
         "window": "day",
         "upptimeUptimePercent": null,
-        "observedUptimePercent": 66.67,
-        "sampleCount": 3,
-        "upSampleCount": 2,
+        "observedUptimePercent": 75,
+        "sampleCount": 4,
+        "upSampleCount": 3,
         "downSampleCount": 1,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
@@ -663,15 +665,17 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
+          "state": "up",
           "startsAt": "2026-05-19T23:00:00.000Z",
           "endsAt": "2026-05-19T23:59:59.999Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 200,
+          "statusCodes": [
+            200
+          ],
+          "responseTimeMs": 414,
+          "source": "git-check",
           "bucketIndex": 23,
           "bucketCount": 24
         }
@@ -701,8 +705,8 @@
         "window": "day",
         "upptimeUptimePercent": null,
         "observedUptimePercent": 100,
-        "sampleCount": 1,
-        "upSampleCount": 1,
+        "sampleCount": 2,
+        "upSampleCount": 2,
         "downSampleCount": 0,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
@@ -1011,15 +1015,17 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
+          "state": "up",
           "startsAt": "2026-05-19T23:00:00.000Z",
           "endsAt": "2026-05-19T23:59:59.999Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 200,
+          "statusCodes": [
+            200
+          ],
+          "responseTimeMs": 783,
+          "source": "git-check",
           "bucketIndex": 23,
           "bucketCount": 24
         }
