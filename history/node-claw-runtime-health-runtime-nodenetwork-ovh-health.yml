@@ -1,7 +1,7 @@
 url: https://runtime.nodenetwork.ovh/health
-status: up
-code: 200
-responseTime: 1022
-lastUpdated: 2026-05-20T08:17:13.290Z
+status: down
+code: 502
+responseTime: 913
+lastUpdated: 2026-05-20T21:48:22.339Z
 startTime: 2026-05-04T21:29:12.323Z
 generator: Upptime <https://github.com/upptime/upptime>
