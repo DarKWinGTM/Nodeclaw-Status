@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-04T17:26:58.239Z",
+  "generatedAt": "2026-06-04T19:38:47.711Z",
   "source": {
     "owner": "DarKWinGTM",
     "repo": "Nodeclaw-Status",
@@ -363,9 +363,9 @@
       "uptime": {
         "window": "day",
         "upptimeUptimePercent": null,
-        "observedUptimePercent": 0,
-        "sampleCount": 1,
-        "upSampleCount": 0,
+        "observedUptimePercent": 50,
+        "sampleCount": 2,
+        "upSampleCount": 1,
         "downSampleCount": 1,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
@@ -622,15 +622,17 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
+          "state": "up",
           "startsAt": "2026-06-04T19:00:00.000Z",
           "endsAt": "2026-06-04T20:00:00.000Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 200,
+          "statusCodes": [
+            200
+          ],
+          "responseTimeMs": 670,
+          "source": "git-check",
           "bucketIndex": 19,
           "bucketCount": 24
         },
@@ -692,9 +694,9 @@
           "state": "down",
           "startsAt": "2026-06-04T00:23:10.323Z",
           "lastObservedAt": "2026-06-04T00:23:10.323Z",
-          "endsAt": "2026-06-04T00:23:10.323Z",
-          "recoveryAt": null,
-          "observedDurationSeconds": 0,
+          "endsAt": "2026-06-04T19:38:25.695Z",
+          "recoveryAt": "2026-06-04T19:38:25.695Z",
+          "observedDurationSeconds": 69315,
           "sampleCount": 1,
           "statusCodes": [
             502
