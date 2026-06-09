@@ -1,7 +1,7 @@
 url: https://app.nodenetwork.ovh/health
-status: down
-code: 502
-responseTime: 939
-lastUpdated: 2026-06-08T23:55:34.514Z
+status: up
+code: 200
+responseTime: 749
+lastUpdated: 2026-06-09T04:38:43.248Z
 startTime: 2026-05-04T13:18:41.702Z
 generator: Upptime <https://github.com/upptime/upptime>
