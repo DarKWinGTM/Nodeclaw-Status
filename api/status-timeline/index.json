@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-16T23:16:28.454Z",
+  "generatedAt": "2026-06-17T01:45:13.372Z",
   "source": {
     "owner": "DarKWinGTM",
     "repo": "Nodeclaw-Status",
@@ -8,10 +8,14 @@
   },
   "currentWindow": {
     "label": "latest 24 hours",
-    "startsAt": "2026-06-15T23:16:28.454Z",
-    "endsAt": "2026-06-16T23:16:28.454Z"
+    "startsAt": "2026-06-16T01:45:13.372Z",
+    "endsAt": "2026-06-17T01:45:13.372Z"
   },
   "availableDays": [
+    {
+      "date": "2026-06-17",
+      "path": "api/status-timeline/days/2026-06-17.json"
+    },
     {
       "date": "2026-06-16",
       "path": "api/status-timeline/days/2026-06-16.json"
@@ -200,8 +204,8 @@
       "segments": [
         {
           "state": "unknown",
-          "startsAt": "2026-06-15T23:16:28.454Z",
-          "endsAt": "2026-06-16T00:16:28.454Z",
+          "startsAt": "2026-06-16T01:45:13.372Z",
+          "endsAt": "2026-06-16T02:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -212,24 +216,22 @@
           "bucketCount": 24
         },
         {
-          "state": "down",
-          "startsAt": "2026-06-16T00:16:28.454Z",
-          "endsAt": "2026-06-16T01:16:28.454Z",
+          "state": "unknown",
+          "startsAt": "2026-06-16T02:45:13.372Z",
+          "endsAt": "2026-06-16T03:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 1,
-          "statusCode": 502,
-          "statusCodes": [
-            502
-          ],
-          "responseTimeMs": 926,
-          "source": "git-check",
+          "sampleCount": 0,
+          "statusCode": null,
+          "statusCodes": [],
+          "responseTimeMs": null,
+          "source": null,
           "bucketIndex": 1,
           "bucketCount": 24
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T01:16:28.454Z",
-          "endsAt": "2026-06-16T02:16:28.454Z",
+          "startsAt": "2026-06-16T03:45:13.372Z",
+          "endsAt": "2026-06-16T04:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -241,8 +243,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T02:16:28.454Z",
-          "endsAt": "2026-06-16T03:16:28.454Z",
+          "startsAt": "2026-06-16T04:45:13.372Z",
+          "endsAt": "2026-06-16T05:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -254,8 +256,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T03:16:28.454Z",
-          "endsAt": "2026-06-16T04:16:28.454Z",
+          "startsAt": "2026-06-16T05:45:13.372Z",
+          "endsAt": "2026-06-16T06:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -267,8 +269,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T04:16:28.454Z",
-          "endsAt": "2026-06-16T05:16:28.454Z",
+          "startsAt": "2026-06-16T06:45:13.372Z",
+          "endsAt": "2026-06-16T07:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -280,8 +282,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T05:16:28.454Z",
-          "endsAt": "2026-06-16T06:16:28.454Z",
+          "startsAt": "2026-06-16T07:45:13.372Z",
+          "endsAt": "2026-06-16T08:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -293,8 +295,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T06:16:28.454Z",
-          "endsAt": "2026-06-16T07:16:28.454Z",
+          "startsAt": "2026-06-16T08:45:13.372Z",
+          "endsAt": "2026-06-16T09:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -306,8 +308,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T07:16:28.454Z",
-          "endsAt": "2026-06-16T08:16:28.454Z",
+          "startsAt": "2026-06-16T09:45:13.372Z",
+          "endsAt": "2026-06-16T10:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -319,8 +321,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T08:16:28.454Z",
-          "endsAt": "2026-06-16T09:16:28.454Z",
+          "startsAt": "2026-06-16T10:45:13.372Z",
+          "endsAt": "2026-06-16T11:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -332,8 +334,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T09:16:28.454Z",
-          "endsAt": "2026-06-16T10:16:28.454Z",
+          "startsAt": "2026-06-16T11:45:13.372Z",
+          "endsAt": "2026-06-16T12:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -345,8 +347,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T10:16:28.454Z",
-          "endsAt": "2026-06-16T11:16:28.454Z",
+          "startsAt": "2026-06-16T12:45:13.372Z",
+          "endsAt": "2026-06-16T13:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -358,8 +360,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T11:16:28.454Z",
-          "endsAt": "2026-06-16T12:16:28.454Z",
+          "startsAt": "2026-06-16T13:45:13.372Z",
+          "endsAt": "2026-06-16T14:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -371,8 +373,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T12:16:28.454Z",
-          "endsAt": "2026-06-16T13:16:28.454Z",
+          "startsAt": "2026-06-16T14:45:13.372Z",
+          "endsAt": "2026-06-16T15:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -384,8 +386,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T13:16:28.454Z",
-          "endsAt": "2026-06-16T14:16:28.454Z",
+          "startsAt": "2026-06-16T15:45:13.372Z",
+          "endsAt": "2026-06-16T16:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -397,8 +399,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T14:16:28.454Z",
-          "endsAt": "2026-06-16T15:16:28.454Z",
+          "startsAt": "2026-06-16T16:45:13.372Z",
+          "endsAt": "2026-06-16T17:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -410,8 +412,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T15:16:28.454Z",
-          "endsAt": "2026-06-16T16:16:28.454Z",
+          "startsAt": "2026-06-16T17:45:13.372Z",
+          "endsAt": "2026-06-16T18:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -423,8 +425,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T16:16:28.454Z",
-          "endsAt": "2026-06-16T17:16:28.454Z",
+          "startsAt": "2026-06-16T18:45:13.372Z",
+          "endsAt": "2026-06-16T19:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -436,8 +438,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T17:16:28.454Z",
-          "endsAt": "2026-06-16T18:16:28.454Z",
+          "startsAt": "2026-06-16T19:45:13.372Z",
+          "endsAt": "2026-06-16T20:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -449,8 +451,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T18:16:28.454Z",
-          "endsAt": "2026-06-16T19:16:28.454Z",
+          "startsAt": "2026-06-16T20:45:13.372Z",
+          "endsAt": "2026-06-16T21:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -462,8 +464,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T19:16:28.454Z",
-          "endsAt": "2026-06-16T20:16:28.454Z",
+          "startsAt": "2026-06-16T21:45:13.372Z",
+          "endsAt": "2026-06-16T22:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -475,8 +477,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T20:16:28.454Z",
-          "endsAt": "2026-06-16T21:16:28.454Z",
+          "startsAt": "2026-06-16T22:45:13.372Z",
+          "endsAt": "2026-06-16T23:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -487,22 +489,24 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
-          "startsAt": "2026-06-16T21:16:28.454Z",
-          "endsAt": "2026-06-16T22:16:28.454Z",
+          "state": "down",
+          "startsAt": "2026-06-16T23:45:13.372Z",
+          "endsAt": "2026-06-17T00:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 502,
+          "statusCodes": [
+            502
+          ],
+          "responseTimeMs": 697,
+          "source": "git-check",
           "bucketIndex": 22,
           "bucketCount": 24
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T22:16:28.454Z",
-          "endsAt": "2026-06-16T23:16:28.454Z",
+          "startsAt": "2026-06-17T00:45:13.372Z",
+          "endsAt": "2026-06-17T01:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -516,16 +520,16 @@
       "incidents": [
         {
           "state": "down",
-          "startsAt": "2026-06-16T00:19:21.328Z",
-          "lastObservedAt": "2026-06-16T00:19:21.328Z",
-          "endsAt": "2026-06-16T00:19:21.328Z",
+          "startsAt": "2026-06-17T00:05:59.074Z",
+          "lastObservedAt": "2026-06-17T00:05:59.074Z",
+          "endsAt": "2026-06-17T00:05:59.074Z",
           "recoveryAt": null,
           "observedDurationSeconds": 0,
           "sampleCount": 1,
           "statusCodes": [
             502
           ],
-          "maxResponseTimeMs": 926,
+          "maxResponseTimeMs": 697,
           "summary": "Down samples observed with HTTP 502. Duration is an observed window from sparse checks."
         }
       ]
@@ -537,49 +541,45 @@
       "uptime": {
         "window": "24h",
         "upptimeUptimePercent": 100,
-        "observedUptimePercent": 33.33,
+        "observedUptimePercent": 66.67,
         "sampleCount": 3,
-        "upSampleCount": 1,
-        "downSampleCount": 2,
+        "upSampleCount": 2,
+        "downSampleCount": 1,
         "degradedSampleCount": 0,
         "unknownSampleCount": 0,
         "incidentCount": 1
       },
       "segments": [
         {
-          "state": "down",
-          "startsAt": "2026-06-15T23:16:28.454Z",
-          "endsAt": "2026-06-16T00:16:28.454Z",
+          "state": "unknown",
+          "startsAt": "2026-06-16T01:45:13.372Z",
+          "endsAt": "2026-06-16T02:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 1,
-          "statusCode": 502,
-          "statusCodes": [
-            502
-          ],
-          "responseTimeMs": 871,
-          "source": "git-check",
+          "sampleCount": 0,
+          "statusCode": null,
+          "statusCodes": [],
+          "responseTimeMs": null,
+          "source": null,
           "bucketIndex": 0,
           "bucketCount": 24
         },
         {
-          "state": "down",
-          "startsAt": "2026-06-16T00:16:28.454Z",
-          "endsAt": "2026-06-16T01:16:28.454Z",
+          "state": "unknown",
+          "startsAt": "2026-06-16T02:45:13.372Z",
+          "endsAt": "2026-06-16T03:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 1,
-          "statusCode": 502,
-          "statusCodes": [
-            502
-          ],
-          "responseTimeMs": 977,
-          "source": "git-check",
+          "sampleCount": 0,
+          "statusCode": null,
+          "statusCodes": [],
+          "responseTimeMs": null,
+          "source": null,
           "bucketIndex": 1,
           "bucketCount": 24
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T01:16:28.454Z",
-          "endsAt": "2026-06-16T02:16:28.454Z",
+          "startsAt": "2026-06-16T03:45:13.372Z",
+          "endsAt": "2026-06-16T04:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -590,22 +590,24 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
-          "startsAt": "2026-06-16T02:16:28.454Z",
-          "endsAt": "2026-06-16T03:16:28.454Z",
+          "state": "up",
+          "startsAt": "2026-06-16T04:45:13.372Z",
+          "endsAt": "2026-06-16T05:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 200,
+          "statusCodes": [
+            200
+          ],
+          "responseTimeMs": 1061,
+          "source": "git-check",
           "bucketIndex": 3,
           "bucketCount": 24
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T03:16:28.454Z",
-          "endsAt": "2026-06-16T04:16:28.454Z",
+          "startsAt": "2026-06-16T05:45:13.372Z",
+          "endsAt": "2026-06-16T06:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -617,8 +619,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T04:16:28.454Z",
-          "endsAt": "2026-06-16T05:16:28.454Z",
+          "startsAt": "2026-06-16T06:45:13.372Z",
+          "endsAt": "2026-06-16T07:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -629,24 +631,22 @@
           "bucketCount": 24
         },
         {
-          "state": "up",
-          "startsAt": "2026-06-16T05:16:28.454Z",
-          "endsAt": "2026-06-16T06:16:28.454Z",
+          "state": "unknown",
+          "startsAt": "2026-06-16T07:45:13.372Z",
+          "endsAt": "2026-06-16T08:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 1,
-          "statusCode": 200,
-          "statusCodes": [
-            200
-          ],
-          "responseTimeMs": 1061,
-          "source": "git-check",
+          "sampleCount": 0,
+          "statusCode": null,
+          "statusCodes": [],
+          "responseTimeMs": null,
+          "source": null,
           "bucketIndex": 6,
           "bucketCount": 24
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T06:16:28.454Z",
-          "endsAt": "2026-06-16T07:16:28.454Z",
+          "startsAt": "2026-06-16T08:45:13.372Z",
+          "endsAt": "2026-06-16T09:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -658,8 +658,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T07:16:28.454Z",
-          "endsAt": "2026-06-16T08:16:28.454Z",
+          "startsAt": "2026-06-16T09:45:13.372Z",
+          "endsAt": "2026-06-16T10:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -671,8 +671,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T08:16:28.454Z",
-          "endsAt": "2026-06-16T09:16:28.454Z",
+          "startsAt": "2026-06-16T10:45:13.372Z",
+          "endsAt": "2026-06-16T11:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -684,8 +684,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T09:16:28.454Z",
-          "endsAt": "2026-06-16T10:16:28.454Z",
+          "startsAt": "2026-06-16T11:45:13.372Z",
+          "endsAt": "2026-06-16T12:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -697,8 +697,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T10:16:28.454Z",
-          "endsAt": "2026-06-16T11:16:28.454Z",
+          "startsAt": "2026-06-16T12:45:13.372Z",
+          "endsAt": "2026-06-16T13:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -710,8 +710,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T11:16:28.454Z",
-          "endsAt": "2026-06-16T12:16:28.454Z",
+          "startsAt": "2026-06-16T13:45:13.372Z",
+          "endsAt": "2026-06-16T14:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -723,8 +723,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T12:16:28.454Z",
-          "endsAt": "2026-06-16T13:16:28.454Z",
+          "startsAt": "2026-06-16T14:45:13.372Z",
+          "endsAt": "2026-06-16T15:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -736,8 +736,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T13:16:28.454Z",
-          "endsAt": "2026-06-16T14:16:28.454Z",
+          "startsAt": "2026-06-16T15:45:13.372Z",
+          "endsAt": "2026-06-16T16:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -749,8 +749,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T14:16:28.454Z",
-          "endsAt": "2026-06-16T15:16:28.454Z",
+          "startsAt": "2026-06-16T16:45:13.372Z",
+          "endsAt": "2026-06-16T17:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -762,8 +762,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T15:16:28.454Z",
-          "endsAt": "2026-06-16T16:16:28.454Z",
+          "startsAt": "2026-06-16T17:45:13.372Z",
+          "endsAt": "2026-06-16T18:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -775,8 +775,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T16:16:28.454Z",
-          "endsAt": "2026-06-16T17:16:28.454Z",
+          "startsAt": "2026-06-16T18:45:13.372Z",
+          "endsAt": "2026-06-16T19:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -788,8 +788,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T17:16:28.454Z",
-          "endsAt": "2026-06-16T18:16:28.454Z",
+          "startsAt": "2026-06-16T19:45:13.372Z",
+          "endsAt": "2026-06-16T20:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -801,8 +801,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T18:16:28.454Z",
-          "endsAt": "2026-06-16T19:16:28.454Z",
+          "startsAt": "2026-06-16T20:45:13.372Z",
+          "endsAt": "2026-06-16T21:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -814,8 +814,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T19:16:28.454Z",
-          "endsAt": "2026-06-16T20:16:28.454Z",
+          "startsAt": "2026-06-16T21:45:13.372Z",
+          "endsAt": "2026-06-16T22:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -827,8 +827,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T20:16:28.454Z",
-          "endsAt": "2026-06-16T21:16:28.454Z",
+          "startsAt": "2026-06-16T22:45:13.372Z",
+          "endsAt": "2026-06-16T23:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -839,28 +839,32 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
-          "startsAt": "2026-06-16T21:16:28.454Z",
-          "endsAt": "2026-06-16T22:16:28.454Z",
+          "state": "down",
+          "startsAt": "2026-06-16T23:45:13.372Z",
+          "endsAt": "2026-06-17T00:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 502,
+          "statusCodes": [
+            502
+          ],
+          "responseTimeMs": 745,
+          "source": "git-check",
           "bucketIndex": 22,
           "bucketCount": 24
         },
         {
-          "state": "unknown",
-          "startsAt": "2026-06-16T22:16:28.454Z",
-          "endsAt": "2026-06-16T23:16:28.454Z",
+          "state": "up",
+          "startsAt": "2026-06-17T00:45:13.372Z",
+          "endsAt": "2026-06-17T01:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 200,
+          "statusCodes": [
+            200
+          ],
+          "responseTimeMs": 884,
+          "source": "git-check",
           "bucketIndex": 23,
           "bucketCount": 24
         }
@@ -868,16 +872,16 @@
       "incidents": [
         {
           "state": "down",
-          "startsAt": "2026-06-16T00:14:20.852Z",
-          "lastObservedAt": "2026-06-16T00:19:23.667Z",
-          "endsAt": "2026-06-16T05:39:08.771Z",
-          "recoveryAt": "2026-06-16T05:39:08.771Z",
-          "observedDurationSeconds": 19488,
-          "sampleCount": 2,
+          "startsAt": "2026-06-17T00:06:00.855Z",
+          "lastObservedAt": "2026-06-17T00:06:00.855Z",
+          "endsAt": "2026-06-17T01:44:51.536Z",
+          "recoveryAt": "2026-06-17T01:44:51.536Z",
+          "observedDurationSeconds": 5931,
+          "sampleCount": 1,
           "statusCodes": [
             502
           ],
-          "maxResponseTimeMs": 977,
+          "maxResponseTimeMs": 745,
           "summary": "Down samples observed with HTTP 502. Duration is an observed window from sparse checks."
         }
       ]
@@ -900,8 +904,8 @@
       "segments": [
         {
           "state": "unknown",
-          "startsAt": "2026-06-15T23:16:28.454Z",
-          "endsAt": "2026-06-16T00:16:28.454Z",
+          "startsAt": "2026-06-16T01:45:13.372Z",
+          "endsAt": "2026-06-16T02:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -912,24 +916,22 @@
           "bucketCount": 24
         },
         {
-          "state": "down",
-          "startsAt": "2026-06-16T00:16:28.454Z",
-          "endsAt": "2026-06-16T01:16:28.454Z",
+          "state": "unknown",
+          "startsAt": "2026-06-16T02:45:13.372Z",
+          "endsAt": "2026-06-16T03:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 1,
-          "statusCode": 502,
-          "statusCodes": [
-            502
-          ],
-          "responseTimeMs": 994,
-          "source": "git-check",
+          "sampleCount": 0,
+          "statusCode": null,
+          "statusCodes": [],
+          "responseTimeMs": null,
+          "source": null,
           "bucketIndex": 1,
           "bucketCount": 24
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T01:16:28.454Z",
-          "endsAt": "2026-06-16T02:16:28.454Z",
+          "startsAt": "2026-06-16T03:45:13.372Z",
+          "endsAt": "2026-06-16T04:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -941,8 +943,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T02:16:28.454Z",
-          "endsAt": "2026-06-16T03:16:28.454Z",
+          "startsAt": "2026-06-16T04:45:13.372Z",
+          "endsAt": "2026-06-16T05:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -954,8 +956,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T03:16:28.454Z",
-          "endsAt": "2026-06-16T04:16:28.454Z",
+          "startsAt": "2026-06-16T05:45:13.372Z",
+          "endsAt": "2026-06-16T06:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -967,8 +969,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T04:16:28.454Z",
-          "endsAt": "2026-06-16T05:16:28.454Z",
+          "startsAt": "2026-06-16T06:45:13.372Z",
+          "endsAt": "2026-06-16T07:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -980,8 +982,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T05:16:28.454Z",
-          "endsAt": "2026-06-16T06:16:28.454Z",
+          "startsAt": "2026-06-16T07:45:13.372Z",
+          "endsAt": "2026-06-16T08:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -993,8 +995,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T06:16:28.454Z",
-          "endsAt": "2026-06-16T07:16:28.454Z",
+          "startsAt": "2026-06-16T08:45:13.372Z",
+          "endsAt": "2026-06-16T09:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1006,8 +1008,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T07:16:28.454Z",
-          "endsAt": "2026-06-16T08:16:28.454Z",
+          "startsAt": "2026-06-16T09:45:13.372Z",
+          "endsAt": "2026-06-16T10:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1019,8 +1021,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T08:16:28.454Z",
-          "endsAt": "2026-06-16T09:16:28.454Z",
+          "startsAt": "2026-06-16T10:45:13.372Z",
+          "endsAt": "2026-06-16T11:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1032,8 +1034,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T09:16:28.454Z",
-          "endsAt": "2026-06-16T10:16:28.454Z",
+          "startsAt": "2026-06-16T11:45:13.372Z",
+          "endsAt": "2026-06-16T12:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1045,8 +1047,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T10:16:28.454Z",
-          "endsAt": "2026-06-16T11:16:28.454Z",
+          "startsAt": "2026-06-16T12:45:13.372Z",
+          "endsAt": "2026-06-16T13:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1058,8 +1060,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T11:16:28.454Z",
-          "endsAt": "2026-06-16T12:16:28.454Z",
+          "startsAt": "2026-06-16T13:45:13.372Z",
+          "endsAt": "2026-06-16T14:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1071,8 +1073,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T12:16:28.454Z",
-          "endsAt": "2026-06-16T13:16:28.454Z",
+          "startsAt": "2026-06-16T14:45:13.372Z",
+          "endsAt": "2026-06-16T15:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1084,8 +1086,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T13:16:28.454Z",
-          "endsAt": "2026-06-16T14:16:28.454Z",
+          "startsAt": "2026-06-16T15:45:13.372Z",
+          "endsAt": "2026-06-16T16:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1097,8 +1099,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T14:16:28.454Z",
-          "endsAt": "2026-06-16T15:16:28.454Z",
+          "startsAt": "2026-06-16T16:45:13.372Z",
+          "endsAt": "2026-06-16T17:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1110,8 +1112,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T15:16:28.454Z",
-          "endsAt": "2026-06-16T16:16:28.454Z",
+          "startsAt": "2026-06-16T17:45:13.372Z",
+          "endsAt": "2026-06-16T18:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1123,8 +1125,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T16:16:28.454Z",
-          "endsAt": "2026-06-16T17:16:28.454Z",
+          "startsAt": "2026-06-16T18:45:13.372Z",
+          "endsAt": "2026-06-16T19:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1136,8 +1138,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T17:16:28.454Z",
-          "endsAt": "2026-06-16T18:16:28.454Z",
+          "startsAt": "2026-06-16T19:45:13.372Z",
+          "endsAt": "2026-06-16T20:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1149,8 +1151,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T18:16:28.454Z",
-          "endsAt": "2026-06-16T19:16:28.454Z",
+          "startsAt": "2026-06-16T20:45:13.372Z",
+          "endsAt": "2026-06-16T21:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1162,8 +1164,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T19:16:28.454Z",
-          "endsAt": "2026-06-16T20:16:28.454Z",
+          "startsAt": "2026-06-16T21:45:13.372Z",
+          "endsAt": "2026-06-16T22:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1175,8 +1177,8 @@
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T20:16:28.454Z",
-          "endsAt": "2026-06-16T21:16:28.454Z",
+          "startsAt": "2026-06-16T22:45:13.372Z",
+          "endsAt": "2026-06-16T23:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1187,22 +1189,24 @@
           "bucketCount": 24
         },
         {
-          "state": "unknown",
-          "startsAt": "2026-06-16T21:16:28.454Z",
-          "endsAt": "2026-06-16T22:16:28.454Z",
+          "state": "down",
+          "startsAt": "2026-06-16T23:45:13.372Z",
+          "endsAt": "2026-06-17T00:45:13.372Z",
           "observedDurationSeconds": 3600,
-          "sampleCount": 0,
-          "statusCode": null,
-          "statusCodes": [],
-          "responseTimeMs": null,
-          "source": null,
+          "sampleCount": 1,
+          "statusCode": 502,
+          "statusCodes": [
+            502
+          ],
+          "responseTimeMs": 703,
+          "source": "git-check",
           "bucketIndex": 22,
           "bucketCount": 24
         },
         {
           "state": "unknown",
-          "startsAt": "2026-06-16T22:16:28.454Z",
-          "endsAt": "2026-06-16T23:16:28.454Z",
+          "startsAt": "2026-06-17T00:45:13.372Z",
+          "endsAt": "2026-06-17T01:45:13.372Z",
           "observedDurationSeconds": 3600,
           "sampleCount": 0,
           "statusCode": null,
@@ -1216,16 +1220,16 @@
       "incidents": [
         {
           "state": "down",
-          "startsAt": "2026-06-16T00:19:19.085Z",
-          "lastObservedAt": "2026-06-16T00:19:19.085Z",
-          "endsAt": "2026-06-16T00:19:19.085Z",
+          "startsAt": "2026-06-17T00:05:57.329Z",
+          "lastObservedAt": "2026-06-17T00:05:57.329Z",
+          "endsAt": "2026-06-17T00:05:57.329Z",
           "recoveryAt": null,
           "observedDurationSeconds": 0,
           "sampleCount": 1,
           "statusCodes": [
             502
           ],
-          "maxResponseTimeMs": 994,
+          "maxResponseTimeMs": 703,
           "summary": "Down samples observed with HTTP 502. Duration is an observed window from sparse checks."
         }
       ]
